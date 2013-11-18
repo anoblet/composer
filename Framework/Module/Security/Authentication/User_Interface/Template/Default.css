@@ -1,0 +1,296 @@
+*
+{
+    Margin:         0px;
+    Padding:        0px;
+    /*
+    Width: 100%;
+    Height: 100%;
+    Min-Height:     100%;
+    Max-Height:     100%;
+    */
+}
+HTML
+{
+    Width:          100%;
+    Height:         100%;
+    Min-Height:     100%;
+    Max-Height:     100%;
+    Margin:         0px;
+    Padding:        0px;
+}
+BODY
+{
+    Margin:         0px;
+    Padding:        0px;  
+    Width:          100%;
+    Height:         100%;
+    Min-Height:     100%;
+    Max-Height:     100%;
+    Background:     #FFFFFF;
+    Color:          #000000;
+    Font-Family:    Arial;
+    Font-Size:      12px;
+    Line-Height:   100%;
+}
+Form
+{
+    Width:  100%;
+    Height: 100%;
+}
+Form Label
+{
+    Display: Block;
+    Height:     10%;
+    Margin-Top:       1%;
+    Margin-Bottom:    1%;
+}
+Form Input
+{
+    Border: 1px #000000 Dotted;
+    Margin: 1%;   
+    Padding: 1%;
+}
+.Form Label
+{
+    Text-Align: Left;
+    Margin: 1%; 
+    Padding: 1%;
+    Display: Block;
+}
+.Form .Field
+{
+    Margin: 1%;
+    Padding: 1%;
+}
+TextArea
+{
+    Border: 1px #000000 Solid;
+}
+Button
+{
+    Padding:   1%;
+    Border: 0px #000 Dotted;
+    Background: #FFF;   
+    Font-Weight: Bold;
+}
+Label
+{
+}
+/** Template Specific **/
+
+
+/** User Interface Specific **/
+.User_Interface
+{
+    Display: Block;
+    Width: 100%;
+    Height: 100%;
+    Min-Height: 100%;
+    Max-Height: 100%;
+}
+.Menu_Bar
+{
+    Width: 100%;
+    Height: 5%;
+    Min-Height: 5%;
+    Max-Height: 5%;   
+}
+.Header
+{    
+    Width:  100%;
+    Height: 5%;
+    Min-Height: 5%;
+    Max-Height: 5%;
+}
+.Header_Content
+{
+    Height: 100%;
+}
+.Status_Bar
+{
+    Width: 100%;
+    Height: 5%;
+    Min-Height: 5%;
+    Max-Height: 5%;
+    Line-Height: 100%;
+    Vertical-Align: Text-Bottom;
+}
+.Grid
+{
+    Width:          100%;
+    Height:         100%;
+    Text-Align:     Center;
+    Vertical-Align: Center;    
+}
+
+
+.Grid *
+{
+}
+.Grid .Row
+{
+    Display: Block;
+    Width: 100%;
+    Height: 100%;
+    Text-Align: Center;
+}
+.Grid .Column
+{
+    Display:    Inline-Block;
+    Text-Align: Left;
+}
+.Columns
+{
+    Display: Block;
+    Height: 80%;
+    Min-Height: 80%;
+    Max-Height: 80%;
+    Vertical-Align: Center;
+}
+.Columns .Left
+{
+    Display: Inline-Block;
+    Float: Left;
+    Width: 20%;
+    Height: 100%;
+    Min-Height: 100%;
+    Max-Height: 100%;
+    OverFlow: Auto;
+
+}
+.Columns .Center
+{
+    Display: Inline-Block;
+    Position:   Relative;
+    Float: Left;
+    Width: 60%;
+    Min-Width: 60%;
+    Max-Width: 60%;
+    Height: 100%;
+    Min-Height: 100%;
+    Max-Height: 100%;
+    /* OverFlow: Auto;*/
+    
+}
+.Columns .Right
+ {
+     Display: inline-block;  
+     Float: Right;
+     Width: 20%;
+     Height: 100%;
+     Min-Height: 100%;
+     Max-Height: 100%;
+     OverFlow: auto;
+ }
+ .Clear
+ {
+     Clear: Both;
+ }
+ .Footer
+ {
+    Height: 5%;
+    Min-Height: 5%;
+    Max-Height: 5%;
+    Bottom: 0;
+    Margin-Bottom: 0%;
+ }
+ .Footer_Content
+ {
+     Padding-Left: 1%;
+     Padding-Right: 1%;
+     Height:    100%;
+ }
+ /** Element Specific **/
+.Button
+ {
+     Margin:    1%;
+     Padding:   1%;
+     Background: #FFF;
+     Border: 0px #000 Dotted;
+     Font-Weight: Bold;
+ }
+ .Text
+ {
+    Background: #FFF;
+    Border: 0px;    
+    /* order: 1px #999 Dotted;    */
+ }
+LI
+{
+    list-style-type: Circle;
+}
+ /** Module Specific **/
+ .Authentication
+ {
+    Display: Inline;
+    Text-Align: Right;
+ }
+ .Author_list
+ {
+     /*Padding: 25%;*/
+ }
+ 
+ /* Box */
+
+.Box
+{
+    Position:   Absolute;
+    Margin: 1%;
+    Border: 1px #000000 Dotted;
+    Padding: 1%;
+    Top: 0;
+    Left: 0;
+    Right: 0;
+    Bottom: 0;
+    Text-Align: Center;
+}
+.Box Label
+{
+    Text-Align: Left;
+}
+.Container
+{
+    Position: Relative;
+    Width:  100%;
+    Height: Auto;
+    Height: 100%;
+    Min-Height: 100%;    
+}
+.Window
+{     
+    Margin:     1%;
+    Padding:    1%;
+    Border:             1px #000000 Solid;
+    Height:     Auto;
+    Background: #FFFFFF;
+    /* Opacity:0.8;
+    Filter:Alpha(Opacity=20);
+    Background-Color:rgba(255,255,255,0.8); */
+}
+.Window .Titlebar
+{
+    Height: 5%;    
+}
+.Window .Titlebar .Title
+{
+    Float: Left;
+    Display: Inline;
+}
+.Window .Titlebar .Buttons
+{
+    Display: Inline;
+    Float: Right;
+}
+.Window .Titlebar .Buttons Button
+{
+    Border: 0px;
+    Padding: 0;              
+}
+.Window .Content
+{
+    Height: 85%;
+}                 
+.Border
+{   
+    /* Padding: 1%; */
+}

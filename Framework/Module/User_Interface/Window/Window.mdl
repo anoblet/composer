@@ -1,0 +1,12 @@
+<?PHP
+    Namespace SYSTEM\Module\User_Interface\Window
+    {
+        
+        Abstract Class Model Extends \SYSTEM\Module\Model
+        {
+            Private $ID;
+            Protected $Title;
+            Protected $Content;
+        }
+    }
+?>

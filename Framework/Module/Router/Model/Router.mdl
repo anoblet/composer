@@ -1,0 +1,15 @@
+<?
+Namespace SYSTEM\Module\Router\Model
+{
+	Class Router Extends \SYSTEM\Core\Model
+	{
+		// Event
+		Protected $Namespace;
+		
+		Public $URI;
+		
+		Public $Function;
+		
+	}
+}
+?>

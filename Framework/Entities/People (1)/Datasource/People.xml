@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Connection>
+	<Type>MySQL</Type>
+	<Host>localhost</Host>
+	<Authentication>
+		<User>andy_dbuser</User>
+		<Password>SystemPW10</Password>
+	</Authentication>
+	<Database>andy_Data</Database>
+	<Table>People</Table>
+</Connection>

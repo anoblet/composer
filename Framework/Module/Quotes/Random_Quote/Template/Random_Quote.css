@@ -1,0 +1,11 @@
+.Random_Quote {
+	Text-Align: Center;
+}
+
+.Random_Quote .Quote {
+	Display: Block;
+}
+
+.Random_Quote DIV {
+	Display: Inline;
+}

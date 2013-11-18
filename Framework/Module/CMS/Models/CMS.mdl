@@ -1,0 +1,13 @@
+<?php
+
+	Namespace SYSTEM\Module\CMS\Models
+	{
+		Class CMS Extends \SYSTEM\Core\Data
+		{
+			Protected $Element = "CMS";
+			Public $Title;
+			Public $Content;
+		}
+	}
+
+?>

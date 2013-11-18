@@ -1,0 +1,392 @@
+*
+{
+	/* font-family: Arial; */
+	font-family: Century Gothic;
+	/* display: block; */
+	margin: 0;
+	padding: 0;
+	
+	moz-outline-style: none;     
+    outline-style: none;
+    outline-width: 0px;
+    outline-color: -moz-use-text-color;
+    Line-Height: 100%;
+}
+
+HTML
+{
+	width: 100%;
+	height: 100%;
+}
+
+BODY
+{
+	width: 100%;
+	height: 100%;
+}
+
+BODY *
+{
+	display: block;
+}
+
+Title
+{
+	display: none;
+}
+
+I
+{
+	display: inline;
+}
+
+B
+{
+	display: inline;
+}
+
+Font
+{
+	display: inline;
+}
+
+Small
+{
+	display: inline;
+}
+
+th
+{
+	display: table-cell;
+}
+
+td
+{
+	display: inline;
+}
+
+span
+{
+	display: inline;
+}
+
+pre
+{
+	display: inline;
+}
+
+IMG
+{
+	display: inline;
+}
+
+table           { display: table }
+tr              { display: table-row }
+thead           { display: table-header-group }
+tbody           { display: table-row-group }
+tfoot           { display: table-footer-group }
+col             { display: table-column }
+colgroup        { display: table-column-group }
+td, th          { display: table-cell }
+
+User_Interface
+{
+	width: 100%;
+	height: 100%;
+    Color: #FFFFFF;
+}
+
+Top
+{
+	background: #000000;
+}
+
+#Top
+{
+	Background: #000000;
+	Color: #FFFFFF;
+	Vertical-Align: Middle;
+}
+
+Left
+{
+	width: 20%;
+	margin-top: 0;
+	margin-right: 0;
+	margin-bottom: 0;
+}
+
+#Left
+{
+	Background: #000000;
+	Color: #FFFFFF;
+}
+
+Center
+{
+	Text-Align: Left;
+	Color: #000000;
+}
+
+Right
+{
+	width: 20%;
+}
+
+#Right
+{
+	background: #000000;
+	Color: #FFFFFF;
+}
+
+Bottom
+{
+	
+}
+
+#Bottom
+{
+	background: #000000;
+	color: #ffffff;
+}
+
+.dijitContentPane
+{
+	border: 1px solid #000000;
+	padding: .25em;
+	margin: .25em;
+}
+
+.dojoxExpandoIcon
+{
+	/* background: black; */
+	display: block;
+	margin: 0 !important;
+}
+
+
+.dojoxExpandoIcon {
+    float: left;
+    height: 1em;
+    width: 1em;
+}
+
+
+
+.dojoxExpandoClosed .dojoxExpandoIcon
+{
+	margin-right: 0;
+}
+
+.dojoxExpandoTitle
+{
+	padding: .25em;
+	line-height: 1em;
+	vertical-align: middle;
+	/* height: 100%; */
+}
+
+.dojoxExpandoTitleNode
+{
+	height: 1em;
+	line-height: 1em;
+	vertical-align: middle;
+	margin-left: 1em;
+}
+
+
+.dojoxExpandoClosed .dojoxExpandoTitleNode {
+    display: inherit;
+}
+
+.dijitTextBox
+{
+	border-top: 0;
+	border-left: 0;
+	border-right: 0;
+}
+
+.dijitInlineEditBoxDisplayModeHover,
+.dj_a11y .dijitInlineEditBoxDisplayModeHover,
+.dj_ie6 .dijitInlineEditBoxDisplayModeHover
+{
+	
+	border: solid 1px transparent;
+	border-bottom: solid 1px #000000;
+}
+
+.dijitInlineEditBoxDisplayMode
+{
+	Float: Left;
+    border: 1px solid transparent;
+    cursor: text;
+    /* Background: URL("http://cdn1.iconfinder.com/data/icons/bwpx/icons/photo_square.gif") no-repeat right top; */
+    background: inherit;
+}
+
+.dijitInlineEditBoxDisplayMode > Span
+{
+	/* display: none; */
+}
+
+/*
+.dijitInlineEditBoxDisplayMode > Span[style]
+{
+	Text-Decoration: None !important;
+}
+*/
+
+Label
+{
+	Float: Left;
+}
+
+.dijitTextBox
+{
+    Float: Right;
+    Width: 100%;
+}
+
+Fieldset
+{
+	Border: 0;
+	Margin-Left: 1em;
+}
+
+Fieldset > *
+{
+}
+
+Fieldset > Legend
+{
+	Display: Block;
+	Width: 100%;
+	Float: None;
+}
+
+Fieldset > Label
+{
+	Float: Left;
+	Width: 20%;
+}
+
+Fieldset > Span
+{
+	Float: Left;
+	Width: 75%;
+}
+
+.claro .dijitFocusedLabel {
+  outline: 0px dotted #494949;
+}
+
+.Edit
+{
+	Float: Right;
+}
+
+.dijitOffScreen
+{
+	display: none;
+}
+
+Navigation
+{
+	width: 100%;
+}
+
+Copyright
+{
+	Text-Align: Center;
+}
+
+.dojoxExpandoTitle
+{
+	background: #111111;
+}
+
+.dojoxExpandoTop .dojoxExpandoTitle
+{
+	Height: 1em;
+}
+
+.dojoxExpandoTop .dojoxExpandoIcon
+{
+	Width: 100%;
+}
+
+.dojoxExpandoLeft .dojoxExpandoTitle
+{
+	Float: Right;
+	Width: 1em;
+}
+
+.dojoxExpandoLeft .dojoxExpandoIcon
+{
+	Height: 100%;
+}
+
+.dojoxExpandoRight .dojoxExpandoTitle
+{
+	Float: Left;
+	Width: 1em;
+}
+
+.dojoxExpandoRight .dojoxExpandoIcon
+{
+	Height: 100%;
+}
+
+.dojoxExpandoBottom .dojoxExpandoTitle
+{
+	Height: 1em;
+}
+
+.dojoxExpandoBottom .dojoxExpandoIcon
+{
+	Width: 100%;
+}
+
+.dojoxExpandoTitleNode
+{
+	Display: None;
+}
+
+Logo
+{
+	Height: 100%;
+	Vertical-Align: Middle;
+}
+
+.dijitSplitter
+{
+	background: #111111;
+}
+
+.dojoxGridHeader
+{
+	background: #000000;
+}
+
+.dojoxGridHeader .dojoxGridCell
+{
+	background: #000000;
+	color: #FFFFFF;
+	border: 1px solid #000000;
+}
+
+
+.dijitButtonNode
+{
+	padding-Top: .25em;
+	padding-Right: 1em;
+	padding-Bottom: .25em;
+	padding-Left: 1em;
+	background: #000000;
+	color: #FFFFFF;
+}
+
+.dojoxGridExpandoNode
+{
+	display: inline;
+}

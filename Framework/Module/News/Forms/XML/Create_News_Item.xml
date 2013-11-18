@@ -1,0 +1,5 @@
+<?PHPxml version="1.0" encoding="utf-8"?>
+<Form action="" Method="POST">
+	<Label>Title: </Label>
+	<Input Type="Text" Value="Test" />
+</Form>

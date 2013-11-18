@@ -1,0 +1,5 @@
+<Request>
+    <Object>\SYSTEM\Module\Security\Authentication\Audit\Login</Object>
+    <Method>Generate</Method>
+    <Parameters>Username</Parameters>
+</Request>

@@ -1,0 +1,6 @@
+<Request>
+    <Object>\SYSTEM\Module\Security\Authentication\Audit\Login</Object>
+    <Method>Process</Method>
+    <Parameters>Username</Parameters>
+    <Parameters>Password</Parameters>
+</Request>

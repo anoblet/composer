@@ -1,0 +1,93 @@
+<?php
+    Namespace SYSTEM\Module\Form
+    {
+        Class Form
+        {
+            Public $Forms;
+            Public $Fields;
+            Static Public Function API()
+            {
+                Return New self;
+            }
+            Public Function Form_Start()
+            {
+                /** @todo Include tempalte **/
+                $Result =   "<Form>";
+                Return $Result;    
+            }
+            // API for Buttons / elements
+            Public Function Submit_Button($Attributes)
+            {
+                $Result =   "<Input Type=\"Button\" Value\"Submit\"";
+            }
+            Public Function Form_Stop()
+            {
+                $Result =   "</Form>";
+                Return $Result;
+            }
+            /** @todo | Single Version
+            *   Multiple because of the array
+            */
+            Public Function Generate_Forms(Array $Forms)
+            {
+                // Takes Array of Forms->Objects (Parameters, Array Fields)
+                For($X=0;$X<Count($Forms);$X++)
+                {           
+                    $this->Form =   $Forms[$X];
+                    /** Objectize .='s **/
+                    $this->Result   =   $this->Generate_Form($this->Form);
+                    
+                }
+                
+                Return $this->Result;
+            }
+            Public Function Generate_Form($Form)
+            {
+                $this->Form =    $Form;
+                $Template   =   "/SYSTEM/Module/Form/Template/Form.tpl";     
+                $this->Result   =   '';
+                $this->Result =  $this->Generate_Fields($this->Form->Fields);
+                $this->Result .=  $this->Generate_Submit($this->Form->Submit);
+                $this->Result     .=   \SYSTEM\Module\Template::Load_Template($Template); 
+
+                
+                    
+                        // Add To the List of Forms
+                Return $this->Result;
+            }
+            Public Function Generate_Field($Field)
+            {
+                $this->Field=   $Field;
+                $Template   =   "/SYSTEM/Module/Form/Template/Text.tpl";
+                $this->Result     .=   \SYSTEM\Module\Template::Load_Template($Template);
+                Return $this->Result;
+            }
+            Public Function Generate_Fields(Array $Fields)
+            {                            
+                /**
+                * Takes:
+                *   ID  
+                *   Name
+                *   Class
+                *   Size
+                */
+                For($X=0;$X<Count($Fields);$X++)
+                {
+                    $this->Field    =   $Fields[$X];                       
+                    $this->Result   =   $this->Generate_Field($this->Field);
+                }
+                
+                Return $this->Result;
+            }
+            Public Function Generate_Submit($Object)
+            {
+                $this->Submit   =   $Object;
+                $Template   =   "/SYSTEM/Module/Form/Template/Submit.tpl";
+                // Needs to be a static function in order to give it its attributes
+                $Result     .=   \SYSTEM\Module\Template::Load_Template($Template);
+               
+                Return $Result;
+            }
+        }
+    }
+?>

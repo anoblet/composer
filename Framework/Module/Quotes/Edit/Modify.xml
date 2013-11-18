@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Request>
+	<Object>\SYSTEM\Module\Quotes\Edit</Object>
+	<Method>Generate</Method>
+	<Parameters>Object_ID</Parameters>
+</Request>

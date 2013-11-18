@@ -1,0 +1,50 @@
+HTML {
+	Width: 100%;
+	Height: 100%;
+	Margin: 0px;
+	Padding: 0px;
+	OverFlow: Auto;
+}
+
+Body {
+	Width: 100%;
+	Height: 100%;
+	Margin: 0px;
+	Padding: 0px;
+	OverFlow: Auto;
+}
+
+.Columns {
+	Display: Inline-Block;
+	Width: 100%;
+}
+
+.Columns DIV {
+	Display: Inline-Block;
+	Padding: 0%;
+	Margin: 0%;
+}
+
+.Columns .Left {
+	Float: Left;
+	Width: 25%;
+}
+
+.Columns .Center {
+	Width: 50%;
+}
+
+.Columns .Right {
+	Width: 25%;
+	Float: Right;
+}
+
+.Columns .Clear {
+	Float: Clear;
+}
+
+.Box {
+	Border: #000000 1px dotted;
+	Padding: 2%;
+	Margin: 1%;
+}

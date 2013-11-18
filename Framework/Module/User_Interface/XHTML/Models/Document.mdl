@@ -1,0 +1,36 @@
+<?
+    Namespace SYSTEM\Module\User_Interface\XHTML\Models
+    {
+        Class Document
+        {
+            Public Static $__Template    =  "/SYSTEM/Module/User_Interface/XHTML/Template/Document.tpl";
+            Public $Title;
+            Public $CSS;
+            Public $Javascript;
+            
+            Public Function __Construct($Document)
+            {
+                Return \SYSTEM\Module\Template::Load_Template(self::$__Template);
+            }
+            // Setters and getters
+            Public Function Set_Title($Title)
+            {
+                $this->Title    =   $Title;
+                Return $this;
+            }
+            Public Function Set_CSS($CSS)
+            {
+                $this->CSS  =   $CSS;    
+            }
+            Public Function Set_Javascript($Javascript)
+            {
+                $this->Javascript   =   $Javascript;    
+            }
+            // Generators
+            Public Function Generate()
+            {
+                Return New self;
+            }
+        }
+    }
+?>

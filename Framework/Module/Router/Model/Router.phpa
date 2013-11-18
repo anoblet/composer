@@ -1,0 +1,11 @@
+<?
+Namespace SYSTEM\Module\Router\Model
+{
+	Class Router Extends \SYSTEM\Module\Router
+	{
+		// Event
+		Protected $Namespace;
+		Protected $Class;
+	}
+}
+?>

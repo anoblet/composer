@@ -1,0 +1,6 @@
+<Request>
+	<Object>\SYSTEM\Module\User_Interface</Object>
+	<Method>Generate_User_Interface</Method>
+	<Parameters></Parameters>
+	<Template>/SYSTEM/User_Interface/User_Interface.tpl</Template>
+</Request>

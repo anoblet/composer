@@ -1,0 +1,437 @@
+*
+{
+    /*Display: Block;   
+    Height: 100%;
+    Min-Height:     100%;
+    Max-Height:     100%;*/
+    Margin:         0px;
+    Padding:        0px;
+    Line-Height: 100%;
+
+    /*
+    Width: 100%;
+    Height: 100%;
+    Min-Height:     100%;
+    Max-Height:     100%;
+    */
+}
+HTML
+{
+	Border: 0;
+    Width:          100%;
+    Height:         100%;
+    Min-Height:     100%;
+    Max-Height:     100%;
+    Margin:         0px;
+    Padding:        0px;
+    Line-Height: 100%;
+}
+BODY
+{
+	Border: 0;
+    Margin:         0px;
+    Padding:        0px;  
+    Width:          100%;
+    Height:         100%;
+    Min-Height:     100%;
+    Max-Height:     100%;
+    Background:     #FFFFFF;
+    Color:          #000000;
+    Font-Family:    Arial;
+    Font-Size:      1em;
+    Line-Height:   100%;
+    /*Overflow: Hidden;*/
+}
+Script
+{
+    
+}
+Form
+{
+    Width:  100%;
+    Height: 100%;
+}
+Form Label
+{
+    Display:        Block;
+    Text-Align: Left;
+    Margin-Top:     .5em;
+    Margin-Left:    .5em;
+    Margin-Right:   .5em;
+    Margin-Bottom:  .5em;
+}
+Form Input
+{
+    Border: 1px #000000 Solid;
+    Margin: .5em;   
+    Padding: .25em;
+}
+Form TextArea
+{
+    Border: 1px #000000 Dotted;
+    Margin: .5em;   
+    Padding: .25em;
+}
+Form Button
+{
+    Padding:   1%;
+    Border: 0px #000 Dotted;
+    Background: #FFF;   
+    Font-Weight: Bold;
+}
+Label
+{
+}
+Button
+{
+    Background: #FFFFFF;
+}
+/** Template Specific **/
+
+.Margin
+{
+    Margin: .25em;
+    OverFlow:Auto;
+}
+.Margin_Absolute
+{
+    Position: Absolute;
+    Top: 0px;
+    Left: 0px;
+    Right: 0px;
+    Bottom: 0px;
+    Margin: .25em;
+}
+.Padding
+{
+	OverFlow:Auto;
+    Padding: .50em;
+}
+.Padding_Absolute
+{  
+    Position: Absolute;
+    Top:    0;
+    Left:   0;
+    Right:  0;
+    Bottom: 0;
+    Padding: .25em;
+}
+/** User Interface Specific **/
+.User_Interface
+{
+    Background: #FFFFFF;
+Width: 100%;
+Height: 100%;
+Position:Relative;
+
+}
+.Menu_Bar
+{
+    Position: Relative;
+    Width: 100%;
+    Height: 5%;
+    Min-Height: 5%;
+    Max-Height: 5%;   
+}
+.Header
+{    
+    Height: 5%;
+    Min-Height: 5%;
+    Max-Height: 5%; */
+}
+.Logo
+{
+    Float: Left;
+    Height: 100%;
+    Font-Size: 1.5em;
+}
+.Navigation
+{
+    Float: Left;
+    Display: Inline-Block;
+}
+A
+{
+    Margin: 1em;
+}
+.Status_Bar
+{
+    Width: 100%;
+    Height: 5%;
+    Min-Height: 5%;
+    Max-Height: 5%;
+}
+.Grid
+{
+    Width:          100%;
+    Height:         100%;
+    Text-Align:     Center;
+    Vertical-Align: Center;    
+}
+
+
+.Grid *
+{
+}
+.Grid .Row
+{
+    Display: Block;
+    Width: 100%;
+    Height: 100%;
+    /* Text-Align: Center; */
+}
+
+.Main
+{
+    Width:  100%;
+    Height:85%;
+
+}
+.Columns
+{
+    Height: 100%;
+    Min-Height: 100%;
+    Max-Height: 100%;
+}
+.Column
+{
+	/*Position: Relative;*/
+	Display: Inline-Block;
+	Float: Left;
+    Height: 100%;
+    Min-Height: 100%;
+    Max-Height: 100%;
+    OverFlow:Auto;
+
+}
+.Left
+{
+    Width: 20%;
+    Height: 100%;
+    Min-Height: 100%;
+    Max-Height: 100%;
+}
+.Center
+{
+    Display: Inline-Block;
+    Width: 60%;
+    Height: 100%;
+    Min-Height: 100%;
+    Max-Height: 100%;
+}
+.Right
+ {
+     Position: Relative;
+     Display: inline-block;  
+     Width: 20%;
+     Height: 100%;
+     Min-Height: 100%;
+     Max-Height: 100%;
+     
+     /*OverFlow: auto;*/)
+ }
+ .Clear
+ {
+     Clear: Both;
+ }
+ .Footer
+ {
+    Position:   Relative;
+    Height: 5%;
+    Min-Height: 5%;
+    Max-Height: 5%;
+    Bottom: 0;
+    Margin-Bottom: 0%;
+ }
+ .Footer_Content
+ {
+     Padding-Left: 1%;
+     Padding-Right: 1%;
+     Height:    100%;
+ }
+ /** Element Specific **/
+.Button
+ {
+     Margin:    1%;
+     Padding:   1%;
+     Background: #FFF;
+     Border: 0px #000 Dotted;
+     Font-Weight: Bold;
+ }
+ .Text
+ {
+    Background: #FFF;
+    Border: 0px;    
+    /* order: 1px #999 Dotted;    */
+ }
+LI
+{
+    list-style-type: Circle;
+}
+ /** Module Specific **/
+ .Authentication
+ {
+    Float: Right;
+    Right:          0;
+    Text-Align: Right;
+ }
+ .Author_list
+ {
+     /*Padding: 25%;*/
+ }
+ 
+ /* Box */
+
+.Box 
+{
+    Margin: 1%;
+    Border: 1px #000000 Dotted;
+    Padding: 1%;
+    Text-Align: Center;
+    /* Overflow: Auto; */
+}
+.Box Label
+{
+    Text-Align: Left;
+}
+.Container
+{
+    Position: Relative; 
+    Width:  100%;
+    height: auto !important; /* ie6 ignores !important, so this will be overridden below */
+    min-height: 100%; /* ie6 ignores min-height completely */
+    height: 100%;
+    
+}
+.Window
+{
+	Height: 100%;
+    Background: #FFFFFF;
+    /* Opacity:0.8;
+    Filter:Alpha(Opacity=20);
+    Background-Color:rgba(255,255,255,0.8); */
+}
+.Window .Titlebar
+{
+    Height: 5%;
+    Cursor: Pointer;    
+}
+.Window .Titlebar .Title
+{
+    Float: Left;
+    Display: Inline;
+}
+.Window .Titlebar .Buttons
+{
+    Display: Inline;
+    Float: Right;
+}
+.Window .Titlebar .Buttons Button
+{
+    Border: 0px;
+    Padding: 0;                                                                                                                                 
+}          
+.Border
+{      
+	OverFlow:Auto;
+
+    Border: 1px Solid #000000;
+}
+.Border_Absolute
+{   
+    Position: Absolute;
+    Top:    0;
+    Left:   0;
+    Right:  0;
+    Bottom: 0;    
+    Border: 1px Solid #000000;
+}
+.Content
+{
+	Position: Relative;
+	OverFlow: Auto;
+	Max-Height: 100%;
+    Background: #FFFFFF;
+    Text-Align: Left;
+}
+.Vertically_Centered                
+{
+    Width: 100%;
+    Height: 100%;
+    Vertical-Align:middle;
+}
+
+.Block
+{
+    Position: Relative;
+    Height: 100%;
+}
+.Block_Title
+{
+    Display: Block;
+    Width: 100%;
+    Height: 5%;
+    Position: Relative;
+      
+    /*
+    Background: #FFFFFF;
+    Opacity:0.8;
+    Filter:Alpha(Opacity=20);
+    */
+}
+.Block_Content
+{
+    Width: 100%;
+    Height:95%;
+    Position: Relative;
+}
+
+#Author_List
+{
+}
+.ui-icon
+{
+	Float: Right;
+}
+.ui-sortable-placeholder { margin: .25em; border: 1px solid #000; visibility: visible !important; height: 50px !important; }
+.ui-sortable-placeholder * { visibility: hidden; }
+
+.Scrollbar
+{
+
+	Display: Inline;
+	Height: 100%;
+}
+.Maximized_Window
+{
+	Z-Index: 1000;
+	Position: Absolute;
+	Left: 0;
+	Right: 0;
+	Top: 0;
+	Bottom: 0;
+}
+.Content_2
+{
+	Height: 100%;
+}
+.Scroll
+{
+	Position: Relative;
+	Width: 100%;
+	Height: 80%;
+	Max-Height: 100%;
+	OverFlow: Auto;
+}
+.Submit
+{
+	Float: Right; /**FIXME**/
+}
+.On_Top
+{
+	z-index: 1000;
+}
+xml
+{
+	
+}

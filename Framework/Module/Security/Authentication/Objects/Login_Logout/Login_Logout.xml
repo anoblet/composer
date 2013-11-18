@@ -1,0 +1,6 @@
+<Request>
+    <Object>\SYSTEM\Module\Security\Authentication\Objects\Login_Logout</Object>
+    <Method>Generate</Method>
+    <Parameters>Author</Parameters>
+    <Parameters>Author</Parameters>
+</Request>

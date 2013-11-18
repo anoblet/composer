@@ -1,0 +1,6 @@
+<Request>
+	<Object>\SYSTEM\Module\Quotes\Objects\Author_List\Author_List</Object>
+	<Method>Generate</Method>
+	<Parameters>Author</Parameters>
+	<Parameters>Author</Parameters>
+</Request>

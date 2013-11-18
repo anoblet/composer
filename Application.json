@@ -1,0 +1,27 @@
+{
+    "-ID": "Tree",
+    "-Label": "Application",
+    "-Author": "Andy Noblet",
+    "ID": "0",
+    "Label": "Application",
+    "Datasource": {
+      "-ID": "0",
+      "-class": "Application\\Datasource",
+      "Adapter": {
+        "-class": "Application\\Datasource\\Database",
+        "Adapter": {
+          "-class": "Application\\Datasource\\Database\\MySQL",
+          "EAV": "TRUE",
+          "Host": "localhost",
+          "Username": "mysql",
+          "Password": "GdSRQ7WxvZj7Tvyw",
+          "Database": "Data"
+        }
+      }
+    },
+    "div": {
+      "-id": "Tree",
+      "-class": "Application\\Model",
+      "#text": "tree"
+    }
+  }

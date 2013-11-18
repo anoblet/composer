@@ -1,0 +1,10 @@
+<?PHP
+    NameSpace SYSTEM\Module\Datasource\Database\MySQL\Data\Models
+    {
+
+        Class XML Extends \SYSTEM\Module\Datasource\Database\MySQL\Models\MySQL
+		{
+
+        }
+    }
+?>

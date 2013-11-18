@@ -1,0 +1,7 @@
+			this.store.fetch({
+				query : {},
+				onComplete : function(Items) {
+					console.log(Items);
+					console.log(this.treeModel.getChildren(Items));
+				}
+			});

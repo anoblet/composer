@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Connection>
+	<Type>MySQL</Type>
+	<Host>localhost</Host>
+	<Authentication>
+		<User>raheimsg_dbuser</User>
+		<Password>CheGuevara11</Password>
+	</Authentication>
+	<Database>raheimsg_SYSTEM</Database>
+</Connection>

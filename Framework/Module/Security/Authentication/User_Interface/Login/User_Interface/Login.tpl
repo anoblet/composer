@@ -1,0 +1,1 @@
+<?=\SYSTEM\Module\Security\Authentication\Objects\Login\Login::Generate_Login();?>

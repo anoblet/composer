@@ -1,0 +1,6 @@
+<Request>
+	<Object>\SYSTEM\Module\Quotes\Random_Quote</Object>
+	<Method>Generate</Method>
+	<Parameters>Author</Parameters>
+	<Parameters>Author</Parameters>
+</Request>

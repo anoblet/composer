@@ -1,0 +1,6 @@
+
+<Request>
+	<Object>\SYSTEM\Module\Quotes\Objects\Submit</Object>
+	<Method>Generate_Form</Method>
+	<Parameters>Quote</Parameters>
+</Request>

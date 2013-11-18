@@ -1,0 +1,48 @@
+.Login
+{
+    
+    Position: Relative;
+    Margin: Auto;
+    Padding: 1%;
+    /* 
+    Background: #000000;
+    Opacity:0.0;
+    Filter:Alpha(Opacity=80);*/
+    Text-Align: Center;
+    Border: 1px Dotted #000000;
+    Top:45%;
+    Bottom: 0;Left:0;Right: 0;
+    Width: 25%;
+    Vertical-Align: Middle;
+    Line-Height: 100%;
+}
+.Username
+{
+    Display: Inline-Block;
+    Float:  Left;  
+}
+.Password
+{
+    Display: Inline-Block; 
+    Float:  None;
+}
+.Submit
+{
+    Display: Inline-Block; 
+    Float:  Right;
+    Text-Align:Right;
+    Font-Weight: Bold; 
+}
+.Submit Input
+{
+    Position: Relative;
+    Background: #FFF;
+    Border: 0px;
+    Text-Align: Right;
+    Font-Size:  18px;
+    Font-Weight: Bold; 
+    Color: #333333;
+    Width: 100%;
+    Vertical-Align: Top;
+    Margin-Top: -10%;
+}

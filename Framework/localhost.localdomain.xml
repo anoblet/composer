@@ -1,0 +1,9 @@
+<?PHPxml version="1.0" encoding="utf-8"?>
+<Connection>
+	<Type>MySQL</Type>
+	<Host>localhost</Host>
+	<Authentication>
+		<User>Administrator</User>
+		<Password>CheGuevara10</Password>
+	</Authentication>
+</Connection>

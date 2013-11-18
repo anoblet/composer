@@ -1,0 +1,8 @@
+<Login_Request>
+    <Message>
+        <?=$this->Message;?>
+    </Message>
+    <Result>
+        <?//=$this->Result;?> 
+    </Result>
+</Login_Result>

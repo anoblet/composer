@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Application ID="0" Label="Application" Author="Andy Noblet">
+	<Datasource class="\Application\Datasource">
+	   	<Adapter class="Application\Datasource\Database">
+			<Adapter class="Application\Datasource\Database\MySQL">
+				<EAV>TRUE</EAV>
+				<Host>localhost</Host>
+				<Username>mysql</Username>
+				<Password>GdSRQ7WxvZj7Tvyw</Password>
+				<Database>Data</Database>
+			</Adapter>
+		</Adapter>
+	</Datasource>
+</Application>

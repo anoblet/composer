@@ -1,0 +1,17 @@
+<Request>
+	<Object>\SYSTEM\Module\Quotes\Objects\Author_List\Author_List</Object>
+	<Method>Generate</Method>
+	<Parameters>Author</Parameters>
+	<Parameters>Author</Parameters>
+</Request>
+`
+<Quotes>
+	<Author_List>
+		<DIV ID="Author_List">
+            <?=\SYSTEM\Module\Controller::Load_Object("/SYSTEM/Module/Quotes/Objects/Author_List/Author_List.xml","Author_List");?>
+		</DIV>
+	</Author_List>
+
+	<Random_Quote>
+	</Random_Quote>
+</Quotes>

@@ -1,0 +1,98 @@
+.Submit_a_Quote {
+	Position: Relative;
+	Display: Block;
+	Width: 100%;
+	Height: 100%;
+	Min-Height: 100%;
+	Max-Height: 100%;
+}
+
+#Submit_a_Quote {
+	Height: 100%;
+	Min-Height: 100%;
+	Max-Height: 100%;
+}
+
+.Border { /*Border: 1px #333333 Solid;*/
+	
+}
+
+.Submit_a_Quote * {
+	Text-Align: Left;
+}
+
+.Titlebar {
+	Padding-Bottom: 2%;
+	Height: 2%;
+}
+
+.Titlebar Label {
+	Float: Left;
+}
+
+Submit_a_Quote .Titlebar Label {
+	
+}
+
+.Submit_a_Quote Label {
+	Text-Align: Left;
+	Margin-Bottom: 1%;
+}
+
+.Submit_a_Quote Input { /* Width: 250px;*/
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	display: block; /*reset from inline*/
+	width: 100%;
+	margin: 0; /*remove defaults*/
+	background: #EEF;
+	border: 1px solid #333;
+	overflow-y: auto; /*resets IE*/
+	overflow-x: hidden; /*resets IE*/
+}
+
+Submit_a_Quote .Quote {
+	Height: Auto;
+}
+
+.Submit_a_Quote TextArea { /* Width: 250px;*/
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	display: block; /*reset from inline*/
+	width: 100%;
+	Height: 90%;
+	margin: 0; /*remove defaults*/
+	Padding: 1%;
+	background: #EEF;
+	border: 1px solid #333;
+	overflow-y: auto; /*resets IE*/
+	overflow-x: hidden; /*resets IE*/
+}
+
+.Submit_a_Quote .Quote Label {
+	Text-Align: Left;
+}
+
+.Submit_a_Quote .Author {
+	Display: Block;
+}
+
+.Submit_a_Quote .Author Label {
+	
+}
+
+.Submit_a_Quote .Submit {
+	Position: Absolute : 
+     Bottom :   0;
+	Text-Align: Right;
+}
+
+.Submit_a_Quote .Submit Button {
+	Border: 1px #333333 Dotted;
+}
+
+.Submit_a_Quote .Close {
+	
+}

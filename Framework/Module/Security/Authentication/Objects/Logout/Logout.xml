@@ -1,0 +1,6 @@
+<Request>
+    <Object>\SYSTEM\Module\Security\Authentication\Objects\Logout</Object>
+    <Method>Process</Method>
+    <Parameters>Author</Parameters>
+    <Parameters>Author</Parameters>
+</Request>
