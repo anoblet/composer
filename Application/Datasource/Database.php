@@ -8,7 +8,7 @@
 			{
 				parent::__Construct($Data);
 			}	
-			Public Function Load($Data)
+			Public Function Load($Data = null)
 			{
 				If(IsSet($this->Adapter));
 				Else

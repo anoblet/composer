@@ -30,7 +30,7 @@
 				MySQL_Select_DB($this->Database);
 			}
 			
-			Public Function Load($Data)
+			Public Function Load($Data = null)
 			{
 				If(IsSet($this->Connection));
 				Else
