@@ -25,7 +25,9 @@
 				*/
 				Try
 				{
-					If(\Framework\Library::Load($Class))
+				    $library = new \Framework\Library;
+				    $library->Load($Class);
+					If($library->Load($Class))
 					{		
 						// static::$Diagnostics->Log_Append("Autoloade: {$Object}");
 					}
