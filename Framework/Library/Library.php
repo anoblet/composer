@@ -22,7 +22,7 @@ Namespace Framework
 		Public $File_Path;
 
 		Function __Construct()
-		{Print "Here";
+		{
 			Return;
 		}
 
