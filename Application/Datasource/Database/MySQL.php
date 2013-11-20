@@ -20,14 +20,14 @@
 			Protected Function Connect($Data = Null)
 			{
 				parent::__Construct($Data);
-				$this->Connection = MySQL_Connect($this->Host,$this->Username,$this->Password);
+				$this->Connection = new \mysqli($this->Host,$this->Username,$this->Password);
 				
 				Return $this->Connection;
 			}
 			
 			Public Function Select_Database($Database = Null)
 			{
-				MySQL_Select_DB($this->Database);
+				mysqli_select_db($this->Connection, $this->Database);
 			}
 			
 			Public Function Load($Data = null)
@@ -104,7 +104,7 @@
 
 			Public Function Query($Query)
 			{
-				$Data = MySQL_Query($Query,$this->Connection);
+				$Data = mysqli_query($this->Connection, $Query);
 				
 				Return $Data;
 			}
