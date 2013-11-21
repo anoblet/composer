@@ -111,9 +111,9 @@
 			
 			Public Function Format_Data_Object($Result = Null)
 			{
-				If($Count = MySQL_Num_Rows($Result) > 0)
+				If($Count = mysqli_num_rows($Result) > 0)
 				{
-					While($Object = MySQL_Fetch_Object($Result))
+					While($Object = mysqli_fetch_object($Result))
 					{
 						$Data[] = $Object;
 					}
@@ -127,9 +127,9 @@
 			
 			Public Function Format_Data_Array($Result = Null)
 			{
-				If($Count = MySQL_Num_Rows($Result) > 0)
+				If($Count = mysqli_num_rows($Result) > 0)
 				{
-					While($Object = MySQL_Fetch_Array($Result, MYSQL_ASSOC))
+					While($Object = mysqli_fetch_array($Result, MYSQL_ASSOC))
 					{
 						$Data = $Object;
 					}
