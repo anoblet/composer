@@ -33,7 +33,7 @@
 					$Data = \Application\Core::$Function();
 				}
 				
-				Throw New \Exception("Function does not exist");
+				Throw New \Exception("Function {$Function} does not exist");
 			}
 			
 			Function __Construct($Data = Null)
