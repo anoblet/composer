@@ -111,6 +111,7 @@
 
 			Public Function Query($Query)
 			{
+			    $this->Module("Diagnostics")->Log_Append($Query);
 				$Data = mysqli_query($this->Connection, $Query);
 				
 				Return $Data;
