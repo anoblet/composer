@@ -97,7 +97,14 @@
 					}
 				}
 				
-				$Data = $Object;
+				if(isset($Object))
+				{
+				    $Data = $Object;
+				}
+				else
+				{
+				    $Data = null;
+				}
 				
 				Return $Data;
 			}
