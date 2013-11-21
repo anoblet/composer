@@ -64,6 +64,13 @@ Namespace Application\Module
 		{
 			Return static::$Log;
 		}
+		
+		public function log($message = null)
+		{
+		    static::$Log[] = $message;
+		    
+		    return;
+		}
 	}
 }
 ?>
