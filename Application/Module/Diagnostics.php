@@ -8,7 +8,7 @@ Namespace Application\Module
 		Public $Status;
 		*/
 		
-		Public $Log = Array();
+		public static $Log = Array();
 		
 		Public Function Alert($Message = Null)
 		{
