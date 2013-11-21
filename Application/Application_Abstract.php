@@ -174,7 +174,7 @@
 				Return $Instance;
 			}
 			
-			Protected Function Module($Module = Null)
+			public function Module($Module = Null)
 			{
 				If(IsSet($Module))
 				{
