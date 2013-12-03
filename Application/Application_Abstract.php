@@ -339,7 +339,7 @@
 				Return $JSON;
 			}
 			
-			Protected Function XML()
+			public function XML()
 			{							
 				// $XML = $this->Module("XML")->XML($this);
 				$XML = $this->Library("XML")->Serialize($this);
