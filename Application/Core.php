@@ -41,7 +41,7 @@ Namespace Application
 			Return $Instance;
 		}
 		
-		Protected Function HTML()
+		public function HTML()
 		{
 			// $XML = $this->Module("XML")->XML($this);
 		
