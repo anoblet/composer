@@ -71,6 +71,11 @@ Namespace Application\Module
 		    
 		    return;
 		}
+		
+		public function getLog()
+		{
+		    return static::$Log;
+		}
 	}
 }
 ?>
