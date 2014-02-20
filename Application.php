@@ -2,17 +2,6 @@
 
 	Require_Once("Framework/Framework.php");
 	
-	Defined('BASE_DIRECTORY') || Define('BASE_DIRECTORY', RealPath(DirName(__FILE__) . ''));
-	
-	ini_set('display_errors', 1);
-	error_reporting(E_ALL);
-	
-	Set_Include_Path
-	(
-		RealPath("./") . PATH_SEPARATOR.
-		Get_Include_Path()
-	);
-	
 	Class Application Extends Application\Application_Abstract
 	{	
 		Public Function Initialize()
@@ -25,11 +14,12 @@
 		
 			Application::$Resource = $this;
 		
+			$this->setRuntimeParameters();
+			
 			$this->Import("Application.xml");
 						
 			$Data = $this->Datasource->Load($this);
 			$this->Import($Data);
-				
 			
 			$this->Controller = New Application\Controller();
 		
@@ -38,6 +28,20 @@
 						
 			Print $this->Controller->Execute($Request);
 					
+		}
+		
+		public function setRuntimeParameters()
+		{
+		    Defined('BASE_DIRECTORY') || Define('BASE_DIRECTORY', RealPath(DirName(__FILE__) . ''));
+		    
+		    Set_Include_Path
+		    (
+		    RealPath("./") . PATH_SEPARATOR.
+		    Get_Include_Path()
+		    );
+		    
+		    ini_set('display_errors', 1);
+		    error_reporting(E_ALL);
 		}
 	}
 	
