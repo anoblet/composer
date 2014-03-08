@@ -1,6 +1,4 @@
 <?php
-
-	Require_Once("Framework/Framework.php");
 	require_once("autoloader.php");
 	
 	Class Application Extends Application\Application_Abstract
