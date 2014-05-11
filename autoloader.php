@@ -1,5 +1,5 @@
 <?php
 function autoload($class) {
-	include($class . ".php");
+	include ($class . ".php");
 }
 ?>
