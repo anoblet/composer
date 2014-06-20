@@ -19,7 +19,7 @@ class XML {
 				$this->XML->endElement();
 			}
 		} elseif (is_object($data)) {
-			$this->XML->startElement($data->_getClass());
+			$this->XML->startElement($data->__getClass());
 			foreach($data->_getAttributes() as $name => $value)
 			{
 				$this->XML->writeAttribute($name, $value);

@@ -19,8 +19,8 @@ class HTML {
 				// $this->HTML->endElement();
 			}
 		} elseif (is_object($data)) {
-			if (method_exists($data, "_getClass")) {
-				$this->HTML->startElement(strtolower($data->_getClass()));
+			if (method_exists($data, "__getClass")) {
+				$this->HTML->startElement(strtolower($data->__getClass()));
 			}
 			else {
 				die("Cannot grab the class from the object.");
