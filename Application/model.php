@@ -4,13 +4,15 @@ namespace Application;
 class Model {
 	private $attributes = array ();
 	private $classes = array();
+	
 	public function __construct() {
-		$class = implode(" ", $classes);
-		$this->attributes ['class'] = strtolower($this->__getClass());
+		$this->addClass(strtolower($this->__getClass()));
+		$class = implode(" ", $this->classes);
+		$this->attributes ['class'] = $class;
 	}
 	public function __toString() {
-		$html = new \Application\Library\HTML();
-		return $html->toHTML($this)->getHTML();
+		$html = new \Application\Module\HTML();
+		return $html->toHTML($this);
 	}
 	public function __getClass() {
 		$fullClass = get_class($this);
@@ -27,7 +29,7 @@ class Model {
 		
 		return $namespace;
 	}
-	public function _getAttributes() {
+	public function __getAttributes() {
 		return $this->attributes;
 	}
 	public function setAttribute($attribute, $value) {

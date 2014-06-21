@@ -2,7 +2,7 @@
 class Application {
 	public function __construct() {
 		$this->model = new Application\Model\Application();
-		print $this->model;
+		// print $this->model;
 	}
 	public function run() {
 		$html = new Application\Model\HTML;
@@ -15,9 +15,12 @@ class Application {
 		$html->head->links[] = $link;
 		$script = new Application\Model\Script;
 		$script->setAttribute("src","Application/Library/bootstrap/js/bootstrap.min.js");
-		$html->head->scripts[] = $script;
+		//$html->head->scripts[] = $script;
 		$html->body = new Application\Model\Body;
-		$html->body->application = $this->model;
+		// $html->body->application = $this->model;
+		$template = new Application\Model\Template;
+		$template->setAttribute("href", "Application/Template/Layout.html");
+		$html->body->template = $template;
 		
 		print $html;
 	}
