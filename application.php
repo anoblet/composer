@@ -1,7 +1,7 @@
 <?php
 class Application {
 	public function __construct() {
-		$this->model = new Application\Model\Application();
+		// $this->model = new Application\Model\Application();
 		// print $this->model;
 	}
 	public function run() {

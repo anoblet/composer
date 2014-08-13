@@ -1,5 +1,6 @@
 <?php
 function autoload($class) {
-	include ($class . ".php");
+    $class = strtolower($class);
+    include ($class . ".php");
 }
 ?>
