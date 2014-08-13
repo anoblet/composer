@@ -6,3 +6,4 @@ spl_autoload_register("autoload");
 $application = new Application();
 $application->run();
 ?>
+z
