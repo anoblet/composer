@@ -1,6 +1,6 @@
 <?php
 namespace Application;
 
-class Module {
+class Module extends \Application {
 }
 ?>

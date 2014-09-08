@@ -1,4 +1,10 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors',1);
+// Let's create an autoloader
+require_once ("autoloader.php");
+spl_autoload_register("autoload");
+
 class Application {
 	public function __construct() {
 		// $this->model = new Application\Model\Application();
@@ -13,15 +19,22 @@ class Application {
 		$link = $this->getModel("Application\\Model\\Link");
 		$link->setAttribute("href", "style.css");
 		$html->head->links[] = $link;
-		$script = $this->getModel("Application\\Model\\Script");
-		$script->setAttribute("src","Application/Library/bootstrap/js/bootstrap.min.js");
-		//$html->head->scripts[] = $script;
+        $script = $this->getModel("Application\\Model\\Script");
+        $script->setAttribute("src","//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js");
+        $html->head->scripts[] = $script;
+        $script = $this->getModel("Application\\Model\\Script");
+        $script->setAttribute("src","jQuery.js");
+        $html->head->scripts[] = $script;
 		$html->body = $this->getModel("Application\\Model\\Body");
 		// $html->body->application = $this->model;
-		$template = $this->getModel("Application\\Model\\Template");
-		$template->setAttribute("href", "Application/Template/Layout.html");
-		$html->body->template = $template;
-		
+        $model = $this->getModel("Application\\Model");
+        $model->setElement("user_interface");
+        $model->setAttribute("url", "Application/Template/Layout.html");
+        $html->body->layout = $model;
+		// $template = $this->getModel("Application\\Model\\Template");
+		// $template->setAttribute("url", "Application/Template/Layout.html");
+		// $html->body->template = $template;
+
 		print $html;
 	}
 

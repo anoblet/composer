@@ -5,4 +5,44 @@ html {
 body {
 	background: black;
 	font-family: arial;
+    color: #ffffff;
+}
+
+.eheader {
+    height: 20%;
+}
+
+.top {
+
+}
+
+.bottom {
+
+}
+
+.left {
+    width: 5%;
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.center {
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+}
+
+.user_interface .top {
+
+}
+
+v.user_.user_interface .top {
+
+}{} .top {
+
 }
