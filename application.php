@@ -11,7 +11,7 @@ class Application {
 		// print $this->model;
 	}
 	public function run() {
-		$html = $this->getModel("Application\\Model\\HTML");
+        $html = $this->getModel()->setElement("html");
 		$html->head = $this->getModel("Application\\Model\\Head");
 		$link = $this->getModel("Application\\Model\\Link");
 		$link->setAttribute("href", "Application/Library/bootstrap/css/bootstrap.min.css");
@@ -27,18 +27,18 @@ class Application {
         $html->head->scripts[] = $script;
 		$html->body = $this->getModel("Application\\Model\\Body");
 		// $html->body->application = $this->model;
-        $model = $this->getModel("Application\\Model");
-        $model->setElement("user_interface");
-        $model->setAttribute("url", "Application/Template/Layout.html");
-        $html->body->layout = $model;
-		// $template = $this->getModel("Application\\Model\\Template");
-		// $template->setAttribute("url", "Application/Template/Layout.html");
-		// $html->body->template = $template;
+        $layout = $this->getModel()->setElement("user_interface")->setAttribute("url", "Application/Template/Layout.html");
+        $html->body->layout = $layout;
 
 		print $html;
 	}
 
-    public function getModel($model) {
+    public function getModel($model = null) {
+        if(isset($model));
+        else {
+            $model = "\\Application\\Model";
+        }
+
         $model = new $model;
         return $model;
     }

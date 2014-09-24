@@ -47,6 +47,8 @@ class Model
     public function setAttribute($attribute, $value)
     {
         $this->attributes[$attribute] = $value;
+
+        return $this;
     }
 
     public function addClass($class)
@@ -64,6 +66,15 @@ class Model
     public function setElement($element)
     {
         $this->_element = $element;
+
+        return $this;
+    }
+
+    public function element($element = null) {
+        if(isset($element)) {
+            $this->_element = $element;
+        }
+        return $this->_element;
     }
 }
 
