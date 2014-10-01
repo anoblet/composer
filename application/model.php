@@ -4,7 +4,7 @@ namespace Application;
 class Model
 {
     private $attributes = array();
-    private $classes = array();
+    private $_classes = array();
     protected $_element;
 
     public function __construct()

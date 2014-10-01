@@ -1,6 +1,11 @@
 <?php
-function autoload($class) {
+function autoload($class)
+{
     $class = strtolower($class);
-    include ($class . ".php");
+    $file = $class . ".php";
+    if (file_exists($file)) {
+        include($file);
+    }
 }
+
 ?>
