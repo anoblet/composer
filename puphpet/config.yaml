@@ -1,8 +1,8 @@
 ---
 vagrantfile-local:
     vm:
-        box: puphpet/debian75-x64
-        box_url: puphpet/debian75-x64
+        box: puphpet/centos65-x64
+        box_url: puphpet/centos65-x64
         hostname: null
         memory: '512'
         cpus: '1'
@@ -13,6 +13,9 @@ vagrantfile-local:
                 36ypmGoko7XH:
                     host: '5517'
                     guest: '22'
+                36ypmGoko7XH:
+                    host: '80'
+                    guest: '80'
         post_up_message: ''
         provider:
             virtualbox:
@@ -78,9 +81,9 @@ apache:
         - rewrite
     vhosts:
         7YqhvK4xk68b:
-            servername: awesome.dev
+            servername: andynoblet.com
             serveraliases:
-                - www.awesome.dev
+                - www.andynoblet.com
             docroot: /var/www
             port: '80'
             setenv:
@@ -162,6 +165,7 @@ xdebug:
         xdebug.remote_handler: dbgp
         xdebug.remote_port: '9000'
         xdebug.remote_log: '/var/www/xdebug.log'
+        xdebug.collect_params: '1'
 xhprof:
     install: '0'
 drush:
