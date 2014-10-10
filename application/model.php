@@ -1,7 +1,7 @@
 <?php
 namespace Application;
 
-class Model
+class Model extends \Application
 {
     private $attributes = array();
     private $_classes = array();

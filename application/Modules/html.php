@@ -1,7 +1,7 @@
 <?php
-namespace Application\Module {
+namespace Application\Modules {
 
-    class HTML extends \Application\Module
+    class HTML extends \Application\Modules\Module
     {
         public $document;
         public $html;
@@ -9,6 +9,12 @@ namespace Application\Module {
         public function createDocument()
         {
             $this->document = new \DOMDocument();
+            return $this;
+        }
+
+        public function addNode($node)
+        {
+            return $this->createElement($node);
         }
 
         public function toHTML($data)
@@ -22,15 +28,7 @@ namespace Application\Module {
                 $this->document->appendChild($root);
             }
 
-            $this->document->preserveWhiteSpace = false;
-            $this->document->formatOutput = true;
-            $html = $this->document->saveXML($this->document, LIBXML_NOEMPTYTAG);
 
-            return $html;
-        }
-
-        public function createElement($data, $parent = null)
-        {
             if (isset($parent)) {
                 if (is_string($data)) {
                     $this->document->createTextNode($data);
@@ -62,12 +60,27 @@ namespace Application\Module {
 
                 }
             }
-            return $element;
+
+
+            $this->document->preserveWhiteSpace = false;
+            $this->document->formatOutput = true;
+            $html = $this->document->saveXML($this->document, LIBXML_NOEMPTYTAG);
+
+            return $html;
+        }
+
+        public function createElement($data, $parent = null)
+        {
+            return $this;
         }
 
         public function createNode($element)
         {
             return $this->getModel("Element")->setElement($element);
+        }
+
+        public function getResponse($response) {
+
         }
     }
 }

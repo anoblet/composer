@@ -1,5 +1,5 @@
 <?php
-namespace Application;
+namespace Application\Modules;
 
 class Module extends \Application
 {
