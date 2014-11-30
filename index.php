@@ -1,3 +1,3 @@
 <?php
-require_once("Application\\Application.php");
+require_once("Application.php");
 ?>

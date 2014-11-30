@@ -16,7 +16,7 @@ class Model extends \Application
 
     public function __toString()
     {
-        $html = new \Application\Module\HTML();
+        $html = $this->getModule("HTML");
         return $html->toHTML($this);
     }
 

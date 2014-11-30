@@ -9,6 +9,9 @@ namespace Application\Modules {
         public function createDocument()
         {
             $this->document = new \DOMDocument();
+
+            // $document = $this->getModel("html");
+
             return $this;
         }
 

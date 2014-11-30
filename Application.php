@@ -27,10 +27,11 @@ class Application
     public function run()
     {
         $request = $this->getModule("Request")->getModel("Request");
-        $data = $this->parse($request);
+        // $this->getModule("Controller");
+        // $data = $this->parse($request);
         $response = $this->getModule("Response")->getModel("Response");
         $html = $this->getModule("HTML");
-        $response = $html->createDocument()->addNode($html->createElement("html"));
+        // $response = $html->createDocument()->addNode($html->createElement("html"));
         // $html = $this->getModule("html")->createNode("html");
         $response->head = $this->getModel()->setElement("head");
         $link = $this->getModel()->setElement("link");
@@ -55,11 +56,6 @@ class Application
     public function start()
     {
         $this->run();
-    }
-
-    public function parse($request)
-    {
-        return $this;
     }
 
     public static function getInstance()
