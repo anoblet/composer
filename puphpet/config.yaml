@@ -3,17 +3,17 @@ vagrantfile-local:
     vm:
         box: puphpet/centos65-x64
         box_url: puphpet/centos65-x64
-        hostname: null
+        hostname: ''
         memory: '512'
         cpus: '1'
         chosen_provider: virtualbox
         network:
             private_network: 192.168.56.101
             forwarded_port:
-                36ypmGoko7XH:
-                    host: '5517'
+                UGDO1x1Dd7iD:
+                    host: '7085'
                     guest: '22'
-                36ypmGoko7XH:
+                ds7l0ZuBLrYC:
                     host: '80'
                     guest: '80'
         post_up_message: ''
@@ -35,7 +35,7 @@ vagrantfile-local:
                     - '--hiera_config /vagrant/puphpet/puppet/hiera.yaml'
                     - '--parser future'
         synced_folder:
-            Bc8m2OPIWvzk:
+            LsNdaO0nlO5E:
                 source: ./
                 target: /var/www
                 sync_type: default
@@ -80,9 +80,10 @@ apache:
     modules:
         - rewrite
     vhosts:
-        7YqhvK4xk68b:
+        bOkoOea7ZKC5:
             servername: andynoblet.com
             serveraliases:
+                - localhost
                 - www.andynoblet.com
             docroot: /var/www
             port: '80'
@@ -108,7 +109,7 @@ nginx:
         proxy_buffer_size: 128k
         proxy_buffers: '4 256k'
     vhosts:
-        i7HZcZNtkSuA:
+        Qvcx2kbaFsgw:
             server_name: awesome.dev
             server_aliases:
                 - www.awesome.dev
@@ -126,7 +127,7 @@ nginx:
             ssl_key: ''
 php:
     install: '1'
-    version: '55'
+    version: '56'
     composer: '1'
     composer_home: ''
     modules:
@@ -141,8 +142,8 @@ php:
         display_errors: On
         error_reporting: '-1'
         session.save_path: /var/lib/php/session
-    timezone: America/Chicago
-    mod_php: '1'
+    timezone: America/New_York
+    mod_php: 0
 hhvm:
     install: '0'
     nightly: 0
@@ -164,8 +165,6 @@ xdebug:
         xdebug.remote_enable: '1'
         xdebug.remote_handler: dbgp
         xdebug.remote_port: '9000'
-        xdebug.remote_log: '/var/www/xdebug.log'
-        xdebug.collect_params: '1'
 xhprof:
     install: '0'
 drush:
@@ -174,17 +173,24 @@ drush:
 ruby:
     install: '1'
     versions:
-        kl2xAzdMqdUA:
+        HvIdHBkQ6mhC:
             version: ''
 nodejs:
     install: '0'
     npm_packages: {  }
+python:
+    install: '1'
+    packages: {  }
+    versions:
+        gj40rzQxjl43:
+            version: ''
 mysql:
-    install: '0'
+    install: '1'
+    override_options: {  }
     root_password: '123'
     adminer: 0
     databases:
-        jV43TweeIij7:
+        lQNzads0GSOE:
             grant:
                 - ALL
             name: dbname
@@ -203,6 +209,7 @@ postgresql:
     adminer: 0
 mariadb:
     install: '0'
+    override_options: {  }
     root_password: '123'
     adminer: 0
     databases: {  }

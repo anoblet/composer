@@ -59,9 +59,6 @@ Vagrant.configure('2') do |config|
     end
 
     if hosts.any?
-      contents = File.open("#{dir}/puphpet/shell/ascii-art/hostmanager-notice.txt", 'r'){ |file| file.read }
-      puts "\n\033[32m#{contents}\033[0m\n"
-
       if config.vm.hostname.to_s.strip.length == 0
         config.vm.hostname = 'puphpet-dev-machine'
       end
@@ -91,6 +88,9 @@ Vagrant.configure('2') do |config|
 
         config.vm.synced_folder "#{folder['source']}", "#{folder['target']}", id: "#{i}",
           rsync__args: rsync_args, rsync__exclude: rsync_exclude, rsync__auto: rsync_auto, type: 'rsync'
+      elsif data['vm']['chosen_provider'] == 'parallels'
+        config.vm.synced_folder "#{folder['source']}", "#{folder['target']}", id: "#{i}",
+          group: 'www-data', owner: 'www-data', mount_options: ['share']
       else
         config.vm.synced_folder "#{folder['source']}", "#{folder['target']}", id: "#{i}",
           group: 'www-data', owner: 'www-data', mount_options: ['dmode=775', 'fmode=764']
