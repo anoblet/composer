@@ -24,8 +24,7 @@ namespace Application\Modules {
         {
             if (isset($this->document)) {
                 $this->createElement($data);
-            }
-            else {
+            } else {
                 $this->createDocument();
                 $root = $this->createElement($data);
                 $this->document->appendChild($root);
@@ -74,7 +73,41 @@ namespace Application\Modules {
 
         public function createElement($data, $parent = null)
         {
-            return $this;
+            if (isset($data)) {
+                if (is_string($data)) {
+                    $element = $this->document->createTextNode($data);
+                }
+                if (is_array($data)) {
+                    foreach ($data as $child) {
+                        $parent->appendChild($this->createElement($child));
+                        $element = null;
+                    }
+                }
+                if (is_object($data)) {
+                    $classElement = $data->getElement();
+                    if (isset($classElement)) ; else {
+                        $classElement = strtolower($data->__getClass());;
+                    }
+
+                    $element = $this->document->createElement($classElement);
+                    $attributes = $data->getAttributes();
+                    foreach ($attributes as $attributes => $value) {
+                        $element->setAttribute($attributes, $value);
+                    }
+                    foreach ($data as $child) {
+                        if (is_array($child)) {
+                            $this->createElement($child, $element);
+                        } else {
+                            $element->appendChild($this->createElement($child, $element));
+                        }
+                    }
+
+                }
+            } else {
+                $element = $this->document->createTextNode("null");
+            }
+
+            return $element;
         }
 
         public function createNode($element)
@@ -82,7 +115,8 @@ namespace Application\Modules {
             return $this->getModel("Element")->setElement($element);
         }
 
-        public function getResponse($response) {
+        public function getResponse($response)
+        {
 
         }
     }

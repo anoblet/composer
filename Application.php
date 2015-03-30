@@ -12,8 +12,6 @@ $application->start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// Let's create an autoloader
-
 class Application
 {
     protected static $_resource;
@@ -30,7 +28,7 @@ class Application
         // $this->getModule("Controller");
         // $data = $this->parse($request);
         $response = $this->getModule("Response")->getModel("Response");
-        $html = $this->getModule("HTML");
+        // $html = $this->getModule("HTML");
         // $response = $html->createDocument()->addNode($html->createElement("html"));
         // $html = $this->getModule("html")->createNode("html");
         $response->head = $this->getModel()->setElement("head");
