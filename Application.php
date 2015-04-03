@@ -24,14 +24,15 @@ class Application
 
     public function run()
     {
-        $request = $this->getModule("Request")->getModel("Request");
-        // $this->getModule("Controller");
-        // $data = $this->parse($request);
-        $response = $this->getModule("Response")->getModel("Response");
-        // $html = $this->getModule("HTML");
-        // $response = $html->createDocument()->addNode($html->createElement("html"));
-        // $html = $this->getModule("html")->createNode("html");
-        $response->head = $this->getModel()->setElement("head");
+        // $request = $this->getModule("Request")->getModel("Request");
+        $response = $this->getModule("Response")->getModel("Response")->addChild(
+            $this->getModel()->setElement("html")->addChild(
+                $this->getModel()->setElement("head")->addChild(
+                )
+            )
+        );
+        $html = $this->getModel()->setElement("html");
+        $html->head = $this->getModel()->setElement("head");
         $link = $this->getModel()->setElement("link");
         $link->setAttribute("href", "Application/Library/bootstrap/css/bootstrap.min.css");
         $response->head->links[] = $link;

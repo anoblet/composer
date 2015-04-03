@@ -6,6 +6,7 @@ class Model extends \Application
     private $attributes = array();
     private $_classes = array();
     protected $_element;
+    protected $_children;
 
     public function __construct()
     {
@@ -75,6 +76,10 @@ class Model extends \Application
             $this->_element = $element;
         }
         return $this->_element;
+    }
+
+    public function addChild($property, $child) {
+        $this->$property = $child;
     }
 }
 
