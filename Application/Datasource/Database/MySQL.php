@@ -27,7 +27,10 @@
 			
 			Public Function Select_Database($Database = Null)
 			{
-				mysqli_select_db($this->Connection, $this->Database);
+				if(mysqli_select_db($this->Connection, $this->Database));
+				else {
+					throw new \Exception("Could not select the database.");
+				}
 			}
 			
 			Public Function Load($Data = null)
