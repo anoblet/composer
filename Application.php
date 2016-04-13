@@ -14,12 +14,14 @@
 			Application::$Resource = $this;
 		
 			$this->setRuntimeParameters();
+			$this->setErrorReporting();
 			
 			$this->Import("Application.xml");
-						
-			$Data = $this->Datasource->Load($this);
-			$this->Import($Data);
-			
+			// $Data = $this->Datasource->Load($this);
+			// $this->Import($Data);
+
+			var_dump($this);
+
 			$this->Controller = New Application\Controller();
 		
 			$Request = New Application\Module\Request();
