@@ -1,10 +1,4 @@
-# Options +FollowSymlinks
-
 RewriteEngine on
-
-# DirectorySlash  Off
-
-#RewriteRule (.*.xml)/ index.php?Object=/$1 [L,QSA]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 # RewriteCond %{REQUEST_FILENAME} !-d
