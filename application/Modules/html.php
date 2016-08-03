@@ -115,9 +115,33 @@ namespace Application\Modules {
             return $this->getModel("Element")->setElement($element);
         }
 
-        public function getResponse($response)
-        {
+        public function serialize($data, $parent = null, $document = null) {
 
+            if(isset($document));
+            else {
+                $document = new \DOMDocument();
+            }
+            if(is_string($data)) {
+                $element = $document->createTextNode($data);
+                if(isset($parent)) {
+                    $parent->appendChild($element);
+                }
+            }
+            elseif ((is_array($data))) {
+
+            }
+            elseif (is_object($data)) {
+                $element = $document->createElement($data->getElement());
+                foreach($data->getChildren() as $child) {
+                    print "Here";
+                    $childElement = $this->serialize($child, $element, $document);
+                    // $document->appendChild($childElement);
+                }
+            }
+
+            $HTML = $document->saveXML();
+
+            return $HTML;
         }
     }
 }
