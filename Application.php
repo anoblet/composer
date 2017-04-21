@@ -1,67 +1,66 @@
 <?php
-require_once("autoloader.php");
-spl_autoload_register("autoload");
-?>
+// Autoload
+require_once("Autoloader.php");
+spl_autoload_register("Autoload");
 
-<?php
-$Application = Application::getInstance();
-$Application->start();
-?>
-
-<?php
+// Error reporting
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-function Application () {
-    $Application = new Application();
+// Application Start
+$Application = Application::getSingleton();
+$Application->Run();
+?>
 
-    return $Application;
-}
-
+<?php
 class Application
 {
-    protected static $_resource;
+    protected static $resource;
+    protected $model;
 
     protected function __construct() {
-        $request = $this->getModule("Request")->getModel("Request")->parse($_REQUEST);
     }
 
-    public function start() {
-        // $request = $this->getModule("Request")->getModel("Request");
+    protected function autoload($class) {
 
-        $this->getModule("HTML")->getModel("HTML");
-
-        $response = $this->getModule("Response")->getModel("Response")->addChild(
-            $this->getModel()->setElement("html")->addChild(
-                $this->getModel()->setElement("head")
-            )
-        );
-
-        print $response;
     }
 
-    public static function getInstance() {
-        if (isset(static::$_resource)) ;
+    public static function getSingleton() {
+        if(isset(static::$resource));
         else {
-            static::$_resource = new Application;
-        }
-        return static::$_resource;
-    }
-
-    public function getModel($model = null) {
-        if (isset($model)) ;
-        else {
-            $model = "\\Application\\Model";
+            static::$resource = new Application;
         }
 
-        $model = new $model;
-        return $model;
+        return static::$resource;
     }
 
     public function getModule($module) {
-        $module = "Application\\Modules\\" . $module;
+        $module = "Application\\Module\\" . $module;
         return new $module;
     }
+
+    public function getModel($Model = null) {
+        $Class = get_called_class();
+        $Model = "$Class\\Model\\$Model";
+        $Model = new $Model;
+
+        return $Model;
+    }
+
+    public function Run() {
+        $Module = $this->getModule("HTML");
+
+        $HTML = $Module->createElement("HTML")->addChild(
+            $Module->createElement("Head")
+        )->addChild(
+            $Module->createElement("Body")
+        );
+
+        var_dump($HTML);
+
+        print $HTML;
+    }
+
 }
 
 ?>

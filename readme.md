@@ -5,7 +5,7 @@ Application Abstract
 * Our initial request will be HTML
 * Create a valid entry point which protects against server-side configurations - Done
 * Our application will adhere to PSR standards
-* Models persist to adatabase
+* Models persist to a database
 * Use plurals when defining subdirectories
 
 

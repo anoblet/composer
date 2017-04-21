@@ -1,5 +1,5 @@
 <?php
-function autoload($class)
+function Autoload($class)
 {
     $class = strtolower($class);
     $file = $class . ".php";
