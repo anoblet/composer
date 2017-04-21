@@ -1,0 +1,69 @@
+<style>
+    * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+    }
+
+    .box {
+        width: 100%;
+        height: 100%;
+    }
+
+    .row {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .center .column {
+        padding: 1%;
+    }
+
+    .column {
+        float: left;
+        overflow: hidden;
+    }
+
+    #top, #bottom {
+        height: 10%;
+    }
+
+    #left, #right {
+        width: 20%;
+    }
+
+
+    .scroll {
+        overflow: auto;
+    }
+
+    .flex {
+        display: flex;
+    }
+
+    #copyright {
+        text-align: center;
+    }
+</style>
+<div class="box flex" style="flex-wrap: wrap;">
+    <div id="top" class="row" style="height: 10%;">
+        <div id="logo">Andy Noblet</div>
+        <div id="navigation">Navigation</div>
+    </div>
+    <div>
+        <div id="left" class="column">Left</div>
+        <div id="center" class="column" style="width: 60%;">
+            <div class="content">
+                <div class="scroll">Center</div>
+            </div>
+        </div>
+        <div id="right" class="column">Right</div>
+    </div>
+    <div id="bottom" class="row" style="height: 10%;">
+        <div id="copyright">&copy; Andy Noblet 2016</div>
+    </div>
+</div>
