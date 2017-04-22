@@ -9,7 +9,7 @@ ini_set('display_errors', 1);
 
 // Application Start
 $Application = Application::getSingleton();
-$Application->Run();
+$Application->Start();
 ?>
 
 <?php
@@ -47,16 +47,16 @@ class Application
         return $Model;
     }
 
-    public function Run() {
+    public function Start() {
         $Module = $this->getModule("HTML");
 
         $HTML = $Module->createElement("HTML")->addChild(
-            $Module->createElement("Head")
+            $Module->createElement("Head")->addChild(
+                $Module->createElement("Title")
+            )
         )->addChild(
             $Module->createElement("Body")
         );
-
-        var_dump($HTML);
 
         print $HTML;
     }

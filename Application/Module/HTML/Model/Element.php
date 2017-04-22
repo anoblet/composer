@@ -5,7 +5,7 @@ class Element extends \Application\Model
 {
     public function setName($name) {
 
-        $this->label = $element;
+        $this->name = $name;
 
         return $this;
     }

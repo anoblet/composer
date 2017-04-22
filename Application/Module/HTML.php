@@ -85,32 +85,33 @@ namespace Application\Module {
         public function serialize($data, $parent = null, $document = null) {
             $HTML = null;
 
-            if(isset($document));
+            if(isset($document)) {
+                if(is_string($data)) {
+                    $element = $document->createTextNode($data);
+                    $parent->appendChild($element);
+                }
+                elseif ((is_array($data))) {
+                    $element = $document->createElement($data->getLabel());
+                    foreach($data->getChildren() as $child) {
+                        $this->serialize($child, $element, $document);
+                    }
+                    $parent->appendChild($element);
+                }
+                elseif (is_object($data)) {
+                    $element = $document->createElement($data->getLabel());
+                    foreach($data->getChildren() as $child) {
+                        $this->serialize($child, $element, $document);
+                    }
+                    $parent->appendChild($element);
+                }
+            }
             else {
                 $document = new \DOMDocument();
+                $document->preserveWhiteSpace = false;
+                $document->formatOutput = true;
                 $this->serialize($data, $document, $document);
-                $HTML = $document->saveXML();
+                $HTML = $document->saveXML($document, LIBXML_NOEMPTYTAG);
             }
-            if(is_string($data)) {
-                $element = $document->createTextNode($data);
-                $parent->appendChild($element);
-            }
-            elseif ((is_array($data))) {
-                $element = $document->createElement($data->getLabel());
-                foreach($data->getChildren() as $child) {
-                    $this->serialize($child, $element, $document);
-                    $parent->appendChild($element);
-                }
-            }
-            elseif (is_object($data)) {
-                $element = $document->createElement($data->getLabel());
-                foreach($data->getChildren() as $child) {
-                    $this->serialize($child, $element, $document);
-                    $parent->appendChild($element);
-                }
-            }
-
-            var_dump($HTML);
 
             return $HTML;
         }
