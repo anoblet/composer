@@ -1,6 +1,1 @@
-<?php
-require_once("Application.php");
-
-// Application();
-
-?>
+<?php require_once("Application.php"); ?>

@@ -21,10 +21,6 @@ class Application
     protected function __construct() {
     }
 
-    protected function autoload($class) {
-
-    }
-
     public static function getSingleton() {
         if(isset(static::$resource));
         else {
@@ -34,9 +30,9 @@ class Application
         return static::$resource;
     }
 
-    public function getModule($module) {
-        $module = "Application\\Module\\" . $module;
-        return new $module;
+    public function getModule($Module) {
+        $Module = "Application\\Module\\" . $Module;
+        return new $Module;
     }
 
     public function getModel($Model = null) {
@@ -45,6 +41,14 @@ class Application
         $Model = new $Model;
 
         return $Model;
+    }
+
+    protected function Autoload($class) {
+        $class = strtolower($class);
+        $file = $class . ".php";
+        if (file_exists($file)) {
+            include($file);
+        }
     }
 
     public function Start() {
@@ -60,7 +64,5 @@ class Application
 
         print $HTML;
     }
-
 }
-
 ?>

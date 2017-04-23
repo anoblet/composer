@@ -1,25 +1,35 @@
 <?php
-namespace Application\Module\HTML\Model;
+
+Namespace Application\Module\HTML\Model;
 
 class Element extends \Application\Model
 {
-    public function setName($name) {
+    protected $Tag;
+    protected $Attributes;
 
-        $this->name = $name;
-
-        return $this;
+    public function setTag($Tag)
+    {
+        $this->Tag = $Tag;
     }
 
-    public function setLabel($Label) {
-        $this->Label = $Label;
-
-        return $this;
+    public function getTag()
+    {
+        return $this->Tag;
     }
 
-    public function getLabel() {
-        $Label = $this->Label;
+    public function setAttributes($Attributes)
+    {
+        $this->Attributes = $Attributes;
+    }
 
-        return $Label;
+    public function getAttributes()
+    {
+        return $this->Attributes;
+    }
+
+    public function addAttribute($Attribute)
+    {
+        $this->Attributes[] = $Attribute;
     }
 }
 

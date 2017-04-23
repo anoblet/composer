@@ -3,8 +3,8 @@ namespace Application;
 
 class Model extends \Application
 {
-    private $_element;
-    private $_attributes = array();
+    private $Element;
+    private $Attributes = array();
     private $classes = array();
     private $children = array();
 
@@ -13,7 +13,7 @@ class Model extends \Application
         $this->setElement($this->__getClass());
         $this->addClass($this->__getClass());
         $class = implode(" ", $this->classes);
-        $this->attributes ['class'] = $class;
+        $this->Attributes ['class'] = $class;
     }
 
     public function __toString()
@@ -43,18 +43,18 @@ class Model extends \Application
 
     public function setAttribute($attribute, $value)
     {
-        $this->_attributes[$attribute] = $value;
+        $this->Attributes[$attribute] = $value;
 
         return $this;
     }
 
     public function getAttribute($attribute) {
-        return $this->_attributes[$attribute];
+        return $this->Attributes[$attribute];
     }
 
     public function getAttributes()
     {
-        return $this->_attributes;
+        return $this->Attributes;
     }
 
     public function addClass($class)
@@ -62,25 +62,25 @@ class Model extends \Application
         $this->classes[] = $class;
     }
 
-    public function setElement($element)
+    public function setElement($Element)
     {
-        $this->_element = $element;
+        $this->Element = $Element;
 
         return $this;
     }
 
     public function getElement()
     {
-        $element = $this->_element;
+        $Element = $this->Element;
 
-        return $element;
+        return $Element;
     }
 
-    public function element($element = null) {
-        if(isset($element)) {
-            $this->_element = $element;
+    public function Element($Element = null) {
+        if(isset($Element)) {
+            $this->Element = $Element;
         }
-        return $this->_element;
+        return $this->Element;
     }
 
     /*
