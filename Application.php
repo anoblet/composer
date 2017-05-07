@@ -62,6 +62,8 @@ class Application
             $Module->createElement("Body")
         );
 
+        $Application = $this->getModel("Application")->Template();
+        
         print $HTML;
     }
 }

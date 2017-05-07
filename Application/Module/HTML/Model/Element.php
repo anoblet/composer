@@ -10,6 +10,8 @@ class Element extends \Application\Model
     public function setTag($Tag)
     {
         $this->Tag = $Tag;
+
+        return $this;
     }
 
     public function getTag()

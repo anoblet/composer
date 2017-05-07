@@ -1,12 +1,15 @@
 <?php
 namespace Application;
 
+use Application\Model\Application;
+
 class Model extends \Application
 {
     private $Element;
     private $Attributes = array();
     private $classes = array();
     private $children = array();
+    protected $Template;
 
     public function __construct()
     {
@@ -96,6 +99,32 @@ class Model extends \Application
 
     public function getChildren() {
         return $this->children;
+    }
+
+    protected  function Template() {
+        ob_start();
+        include($this->getTemplate());
+        $HTML = ob_get_clean();
+
+        return $HTML;
+    }
+
+    protected function getTemplate() {
+        $Template = "Application" . DIRECTORY_SEPARATOR . "Template" . DIRECTORY_SEPARATOR . $this->__getClass() . ".html";
+
+        return $Template;
+    }
+
+    public function toHTML() {
+        $HTML = $this->getModule("HTML")->serialize($this);
+
+        return $this;
+    }
+
+    public function getClass() {
+        $class = $this->__getClass();
+
+        return $class;
     }
 }
 
