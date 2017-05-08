@@ -101,7 +101,7 @@ class Model extends \Application
         return $this->children;
     }
 
-    protected  function Template() {
+    protected function Template() {
         ob_start();
         include($this->getTemplate());
         $HTML = ob_get_contents();
