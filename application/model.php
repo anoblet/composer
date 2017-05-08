@@ -104,13 +104,14 @@ class Model extends \Application
     protected  function Template() {
         ob_start();
         include($this->getTemplate());
-        $HTML = ob_get_clean();
+        $HTML = ob_get_contents();
+        ob_get_clean();
 
         return $HTML;
     }
 
     protected function getTemplate() {
-        $Template = "Application" . DIRECTORY_SEPARATOR . "Template" . DIRECTORY_SEPARATOR . $this->__getClass() . ".html";
+        $Template = "Application" . DIRECTORY_SEPARATOR . "Template" . DIRECTORY_SEPARATOR . $this->__getClass() . ".phtml";
 
         return $Template;
     }

@@ -1,5 +1,6 @@
 <html>
 <head>
+    <title><?= $this->getTitle(); ?></title>
     <style>
         * {
             -webkit-box-sizing: border-box;
@@ -18,16 +19,8 @@
             flex-wrap: wrap;
         }
 
-        .row {
-            width: 100%;
-            overflow: hidden;
-        }
-
         #center {
-
-        }
-
-        .center .column {
+            width: 60%;
         }
 
         #top, #bottom {
@@ -39,6 +32,7 @@
         #left, #right {
             width: 20%;
             background: #1b1b1b;
+            padding: 1em;
         }
 
         #left, #center, #right {
@@ -49,12 +43,8 @@
             overflow: auto;
         }
 
-        .flex {
-            display: flex;
-        }
-
         #Navigation {
-            width: 100%;
+            margin: auto;
         }
 
         #copyright {
@@ -63,23 +53,45 @@
             align-items: center;
             justify-content: center;;
         }
+
+        #search {
+            align-items: center;
+            margin: auto;
+        }
+
+        form {
+            margin: 0;
+        }
+
+        #logo {
+            align-items: center;
+        }
     </style>
+    <script src="https://use.fontawesome.com/49642d2436.js"></script>
 </head>
 <body>
 <div id="top" class="row">
     <div id="logo">Andy Noblet</div>
+    <div id="search">
+        <form>
+            <label for="Search">
+                <i class="fa fa-fw fa-search" aria-hidden="true"></i>
+            </label>
+            <input type="text" name="Search"/>
+        </form>
+    </div>
     <div id="Navigation">
-        <div id="search">Search</div>
+        <i class="fa fa-cog" aria-hidden="true"></i>
     </div>
 </div>
 <div id="left" class="column">Left</div>
-<div id="center" class="column" style="width: 60%;">
+<div id="center" class="column">
     <div class="content">
         <div class="scroll">Center</div>
     </div>
 </div>
-<div id="right" class="column">Right</div>
-<div id="bottom" class="row" style="height: 10%;">
+<div id="right">Right</div>
+<div id="bottom">
     <div id="copyright">&copy; Andy Noblet 2016</div>
 </div>
 </body>

@@ -64,7 +64,7 @@ class Application
 
         $Application = $this->getModel("Application")->Template();
         
-        print $HTML;
+        print $Application;
     }
 }
 ?>
