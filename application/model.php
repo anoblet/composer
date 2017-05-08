@@ -1,8 +1,6 @@
 <?php
 namespace Application;
 
-use Application\Model\Application;
-
 class Model extends \Application
 {
     private $Element;
