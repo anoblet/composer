@@ -1,6 +1,6 @@
 <?php
 // Autoload
-require_once("Autoloader.php");
+require_once("Autoload.php");
 spl_autoload_register("Autoload");
 
 // Error reporting
