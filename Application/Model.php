@@ -32,7 +32,7 @@ class Model extends \Application
         return $class;
     }
 
-    public function __getNamespace()
+    public function getNamespace()
     {
         $fullClass = get_class($this);
         $classParts = explode("\\", $fullClass);
@@ -99,6 +99,12 @@ class Model extends \Application
         return $this->children;
     }
 
+    protected function getTemplate() {
+        $Template = "Application" . DIRECTORY_SEPARATOR . "Template" . DIRECTORY_SEPARATOR . $this->__getClass() . ".phtml";
+
+        return $Template;
+    }
+
     protected function Template() {
         ob_start();
         include($this->getTemplate());
@@ -108,22 +114,10 @@ class Model extends \Application
         return $HTML;
     }
 
-    protected function getTemplate() {
-        $Template = "Application" . DIRECTORY_SEPARATOR . "Template" . DIRECTORY_SEPARATOR . $this->__getClass() . ".phtml";
-
-        return $Template;
-    }
-
     public function toHTML() {
         $HTML = $this->getModule("HTML")->serialize($this);
 
         return $this;
-    }
-
-    public function getClass() {
-        $class = $this->__getClass();
-
-        return $class;
     }
 }
 
