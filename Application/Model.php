@@ -7,7 +7,7 @@ class Model extends \Application
     private $Attributes = array();
     private $classes = array();
     private $children = array();
-    protected $Template;
+    private $Template;
 
     public function __construct()
     {
@@ -100,18 +100,17 @@ class Model extends \Application
     }
 
     protected function getTemplate() {
-        $Template = "Application" . DIRECTORY_SEPARATOR . "Template" . DIRECTORY_SEPARATOR . $this->__getClass() . ".phtml";
+        $Class = get_called_class();
+        $Parts = explode("\\", $Class);
+        $Count = count($Parts);
+        if($Parts[$Count-2] == "Model") {
+            array_splice($Parts, -2, 2);
+            $Class = implode("\\", $Parts);
+        }
+        $Class = str_replace("\\", DIRECTORY_SEPARATOR, $Class);
+        $Template = $Class . DIRECTORY_SEPARATOR . "Template" . DIRECTORY_SEPARATOR . $this->__getClass() . ".phtml";
 
         return $Template;
-    }
-
-    protected function Template() {
-        ob_start();
-        include($this->getTemplate());
-        $HTML = ob_get_contents();
-        ob_get_clean();
-
-        return $HTML;
     }
 
     public function toHTML() {

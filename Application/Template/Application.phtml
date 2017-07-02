@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title><?= $this->getTitle(); ?></title>
+    <title><?=$this->getTitle(); ?></title>
     <style>
         * {
             -webkit-box-sizing: border-box;
@@ -74,6 +74,15 @@
             justify-content: center;
             width: 20%;
         }
+
+        .box {
+            width: 100%;
+            display: initial;
+        }
+
+        .box .title {
+            width: 100%;
+        }
     </style>
     <script src="https://use.fontawesome.com/49642d2436.js"></script>
 </head>
@@ -92,14 +101,17 @@
         <i class="fa fa-lock" aria-hidden="true"></i>
         <i class="fa fa-cog" aria-hidden="true"></i>
         <i class="fa fa-cog" aria-hidden="true"></i>
-        <i class="fa fa-cog" aria-hidden="true"></i>
+        <a href="settings"><i class="fa fa-cog" aria-hidden="true"></i></a>
     </div>
 </div>
-<div id="left" class="column">Left</div>
+<div id="left" class="column"><div class="box">
+        <div class="title">Title</div>
+        <div class="content">Content</div>
+    </div></div>
 <div id="center" class="column">
     Center
 </div>
-<div id="right">Right</div>
+<div id="right"><?php print $this->getModule("User")->getInfo(); ?></div>
 <div id="bottom">
     <div id="copyright">&copy; Andy Noblet 2016</div>
 </div>

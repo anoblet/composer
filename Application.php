@@ -16,7 +16,6 @@ $Application->Start();
 class Application
 {
     protected static $resource;
-    protected $model;
 
     protected function __construct() {
     }
@@ -28,6 +27,10 @@ class Application
         }
 
         return static::$resource;
+    }
+
+    public function getClass() {
+        return get_called_class();
     }
 
     public function getModule($Module) {
@@ -43,6 +46,12 @@ class Application
         return $Model;
     }
 
+    protected function getView($View) {
+        $View = $this->Template($View);
+
+        return $View;
+    }
+
     protected function Autoload($class) {
         $class = strtolower($class);
         $file = $class . ".php";
@@ -51,9 +60,11 @@ class Application
         }
     }
 
-    public function Start() {
+    public function Start()
+    {
+        /*
+        if ($this->getModule("Controller")->getPath()) ;
         $Module = $this->getModule("HTML");
-
         $HTML = $Module->createElement("HTML")->addChild(
             $Module->createElement("Head")->addChild(
                 $Module->createElement("Title")
@@ -61,10 +72,76 @@ class Application
         )->addChild(
             $Module->createElement("Body")
         );
+        */
 
-        $Application = $this->getModel("Application")->Template();
-        
-        print $Application;
+        $Request = $this->getRequest();
+
+        if($Request['Module']) {
+            if($Request['Function']) {
+                $Function = $Request['Function'];
+            }
+            else {
+                $Function = "Index";
+            }
+            $Output = $this->getModule($Request['Module'])->$Function();
+        }
+        else {
+            $Output = $this->getModel("Application")->getView("Application.phtml");
+        }
+
+        print $Output;
+    }
+
+    public function getInterface() {
+
+    }
+
+    protected function getRequest() {
+        $Parts = explode("/", $_SERVER['SCRIPT_NAME']);
+        array_pop($Parts);
+        $Base = implode("/", $Parts);
+        $Path = str_replace($Base, null, $_SERVER['REQUEST_URI']);
+
+        $Parts = explode("/", $Path);
+        if(isset($Parts[1])) {
+
+        }
+
+        if ($Path == "/") {
+            $Request = null;
+        }
+        else {
+            $Parts = explode("/", $Path);
+            $Request['Module'] = $Parts[1];
+            $Request['Function'] = $Parts[2];
+        }
+
+        return $Request;
+    }
+
+    public function Template($Template = null, $Data = array()) {
+        if(isset($Template));
+        else {
+            $Template = $this->__getClass();
+        }
+
+        $Class = get_called_class();
+        $Parts = explode("\\", $Class);
+        $Count = count($Parts);
+        if($Parts[$Count-2] == "Model") {
+            array_splice($Parts, -2, 2);
+            $Class = implode("\\", $Parts);
+        }
+        $Class = str_replace("\\", DIRECTORY_SEPARATOR, $Class);
+        $File = $Class . DIRECTORY_SEPARATOR . "Template" . DIRECTORY_SEPARATOR . $Template;
+
+        ob_start();
+        extract($Data);
+        include($File);
+        $HTML = ob_get_contents();
+        ob_get_clean();
+
+        return $HTML;
     }
 }
 ?>
