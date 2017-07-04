@@ -7,6 +7,12 @@ spl_autoload_register("Autoload");
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+$Parts = explode("/", $_SERVER['SCRIPT_NAME']);
+array_pop($Parts);
+$Base = implode("/", $Parts);
+$Base = $Base . "/";
+define("BASE", $Base);
+
 // Application Start
 $Application = Application::getSingleton();
 $Application->Start();
@@ -18,6 +24,14 @@ class Application
     protected static $resource;
 
     protected function __construct() {
+    }
+
+    protected function Autoload($class) {
+        $class = strtolower($class);
+        $file = $class . ".php";
+        if (file_exists($file)) {
+            include($file);
+        }
     }
 
     public static function getSingleton() {
@@ -46,54 +60,10 @@ class Application
         return $Model;
     }
 
-    protected function getView($View) {
-        $View = $this->Template($View);
+    protected function getView($View, $Data = null) {
+        $View = $this->Template($View, $Data);
 
         return $View;
-    }
-
-    protected function Autoload($class) {
-        $class = strtolower($class);
-        $file = $class . ".php";
-        if (file_exists($file)) {
-            include($file);
-        }
-    }
-
-    public function Start()
-    {
-        /*
-        if ($this->getModule("Controller")->getPath()) ;
-        $Module = $this->getModule("HTML");
-        $HTML = $Module->createElement("HTML")->addChild(
-            $Module->createElement("Head")->addChild(
-                $Module->createElement("Title")
-            )
-        )->addChild(
-            $Module->createElement("Body")
-        );
-        */
-
-        $Request = $this->getRequest();
-
-        if($Request['Module']) {
-            if($Request['Function']) {
-                $Function = $Request['Function'];
-            }
-            else {
-                $Function = "Index";
-            }
-            $Output = $this->getModule($Request['Module'])->$Function();
-        }
-        else {
-            $Output = $this->getModel("Application")->getView("Application.phtml");
-        }
-
-        print $Output;
-    }
-
-    public function getInterface() {
-
     }
 
     protected function getRequest() {
@@ -113,10 +83,25 @@ class Application
         else {
             $Parts = explode("/", $Path);
             $Request['Module'] = $Parts[1];
-            $Request['Function'] = $Parts[2];
+            if(isset($Parts[2])) {
+                $Request['Function'] = $Parts[2];
+            }
+            else {
+                $Request['Function'] = "Index";
+            }
         }
 
         return $Request;
+    }
+
+    protected function getURL($Path = null) {
+        $URL = BASE . $Path;
+
+        return $URL;
+    }
+
+    public function getInterface() {
+
     }
 
     public function Template($Template = null, $Data = array()) {
@@ -136,12 +121,33 @@ class Application
         $File = $Class . DIRECTORY_SEPARATOR . "Template" . DIRECTORY_SEPARATOR . $Template;
 
         ob_start();
-        extract($Data);
+        if(isset($Data)) {
+            extract($Data);
+        }
         include($File);
         $HTML = ob_get_contents();
         ob_get_clean();
 
         return $HTML;
+    }
+
+    public function Start()
+    {
+        $Request = $this->getRequest();
+        if($Request['Module']) {
+            if($Request['Function']) {
+                $Function = $Request['Function'];
+            }
+            else {
+                $Function = "Index";
+            }
+            $Output = $this->getModule($Request['Module'])->$Function();
+        }
+        else {
+            $Output = $this->getModel("Application")->getView("Application.phtml");
+        }
+
+        print $Output;
     }
 }
 ?>

@@ -4,6 +4,9 @@ namespace Application\Module {
 
     class User extends \Application\Module
     {
+        public function Index() {
+            return $this->Login();
+        }
         public function getInfo()
         {
             $User = $this->getModel("User")->Template("User.phtml");
@@ -17,7 +20,18 @@ namespace Application\Module {
         }
 
         public function Login() {
-            print "Here";
+            if (isset($User) && isset($Password)) ;
+            else {
+                $View = $this->getView("Login.phtml");
+            }
+
+            return $View;
+        }
+        protected function Info() {
+            $User = $this->getModel("User");
+            $View = $this->getView("User.phtml", array("User" => $User));
+
+            return $View;
         }
     }
 }

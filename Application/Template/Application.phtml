@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title><?=$this->getTitle(); ?></title>
+    <title><?= $this->getTitle(); ?></title>
     <style>
         * {
             -webkit-box-sizing: border-box;
@@ -61,6 +61,7 @@
 
         #Search {
             align-items: center;
+            justify-content: center;
             margin: auto;
             width: 60%;
         }
@@ -83,36 +84,59 @@
         .box .title {
             width: 100%;
         }
+
+        .column {
+            overflow: auto;
+        }
+
+        #Search form {
+            display: flex;
+            align-items: center;
+        }
+
+        #Search i {
+            padding-left: 1em;
+        }
+
+        #center {
+            color: #1b1b1b;
+        }
     </style>
+    <link rel="stylesheet" href="Application.css">
     <script src="https://use.fontawesome.com/49642d2436.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="Application.js"></script>
 </head>
 <body>
 <div id="top" class="row">
-    <div id="Logo">Andy Noblet</div>
+    <div id="Logo"><a href="<?= $this->getURL(); ?>">Andy Noblet</a></div>
     <div id="Search">
-        <!-- <form>
+        <form>
+            <input type="text" name="Search"/>
             <label for="Search">
                 <i class="fa fa-fw fa-search" aria-hidden="true"></i>
             </label>
-            <input type="text" name="Search"/>
-        </form> -->
+        </form>
     </div>
     <div id="Navigation">
-        <i class="fa fa-lock" aria-hidden="true"></i>
+        <a href="User/Login"><i class="fa fa-lock" aria-hidden="true"></i></a>
         <i class="fa fa-cog" aria-hidden="true"></i>
         <i class="fa fa-cog" aria-hidden="true"></i>
-        <a href="settings"><i class="fa fa-cog" aria-hidden="true"></i></a>
+        <a href="Settings"><i class="fa fa-cog" aria-hidden="true"></i></a>
     </div>
 </div>
-<div id="left" class="column"><div class="box">
+<div id="left" class="column">
+    <div class="box">
         <div class="title">Title</div>
         <div class="content">Content</div>
-    </div></div>
+    </div>
+</div>
 <div id="center" class="column">
     Center
 </div>
-<div id="right"><?php print $this->getModule("User")->getInfo(); ?></div>
-<div id="bottom">
+<div id="right" src="<?= $this->getURL("User/Info"); ?>" class="column"></div>
+<div id="bottom" src="Layout/Bottom">
     <div id="copyright">&copy; Andy Noblet 2016</div>
 </div>
 </body>
