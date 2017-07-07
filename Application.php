@@ -19,53 +19,29 @@ $Application->Start();
 ?>
 
 <?php
-class Application
-{
-    protected static $resource;
 
+class Application {
+    protected static $resource;
     protected function __construct() {
     }
-
-    protected function Autoload($class) {
+    protected function autoload($class) {
         $class = strtolower($class);
         $file = $class . ".php";
         if (file_exists($file)) {
             include($file);
         }
     }
-
     public static function getSingleton() {
-        if(isset(static::$resource));
+        if (isset(static::$resource)) ;
         else {
             static::$resource = new Application;
         }
 
         return static::$resource;
     }
-
     public function getClass() {
         return get_called_class();
     }
-
-    public function getModule($Module) {
-        $Module = "Application\\Module\\" . $Module;
-        return new $Module;
-    }
-
-    public function getModel($Model = null) {
-        $Class = get_called_class();
-        $Model = "$Class\\Model\\$Model";
-        $Model = new $Model;
-
-        return $Model;
-    }
-
-    protected function getView($View, $Data = null) {
-        $View = $this->Template($View, $Data);
-
-        return $View;
-    }
-
     protected function getRequest() {
         $Parts = explode("/", $_SERVER['SCRIPT_NAME']);
         array_pop($Parts);
@@ -73,55 +49,55 @@ class Application
         $Path = str_replace($Base, null, $_SERVER['REQUEST_URI']);
 
         $Parts = explode("/", $Path);
-        if(isset($Parts[1])) {
-
+        if (isset($Parts[1]));
+        else{
+            $Request['Module'] = "Layout";
         }
 
         if ($Path == "/") {
             $Request = null;
-        }
-        else {
+        } else {
             $Parts = explode("/", $Path);
+
             $Request['Module'] = $Parts[1];
-            if(isset($Parts[2])) {
+            if (isset($Parts[2])) {
                 $Request['Function'] = $Parts[2];
-            }
-            else {
+            } else {
                 $Request['Function'] = "Index";
             }
         }
 
         return $Request;
     }
-
-    protected function getURL($Path = null) {
-        $URL = BASE . $Path;
-
-        return $URL;
+    public function getModule($Module) {
+        $Module = "Application\\Module\\" . $Module;
+        return new $Module;
     }
+    public function getModel($Model = null) {
+        $Class = get_called_class();
+        $Model = "$Class\\Model\\$Model";
+        $Model = new $Model;
 
-    public function getInterface() {
-
+        return $Model;
     }
-
-    public function Template($Template = null, $Data = array()) {
-        if(isset($Template));
+    protected function getView($View, $Data = null) {
+        if (isset($View)) ;
         else {
-            $Template = $this->__getClass();
+            $View = $this->__getClass();
         }
 
         $Class = get_called_class();
         $Parts = explode("\\", $Class);
         $Count = count($Parts);
-        if($Parts[$Count-2] == "Model") {
+        if ($Parts[$Count - 2] == "Model") {
             array_splice($Parts, -2, 2);
             $Class = implode("\\", $Parts);
         }
         $Class = str_replace("\\", DIRECTORY_SEPARATOR, $Class);
-        $File = $Class . DIRECTORY_SEPARATOR . "Template" . DIRECTORY_SEPARATOR . $Template;
+        $File = $Class . DIRECTORY_SEPARATOR . "Template" . DIRECTORY_SEPARATOR . $View;
 
         ob_start();
-        if(isset($Data)) {
+        if (isset($Data)) {
             extract($Data);
         }
         include($File);
@@ -130,24 +106,29 @@ class Application
 
         return $HTML;
     }
+    protected function getURL($Path = null) {
+        $URL = BASE . $Path;
 
-    public function Start()
-    {
+        return $URL;
+    }
+    protected function getLayout() {
+
+    }
+    public function Start() {
         $Request = $this->getRequest();
-        if($Request['Module']) {
-            if($Request['Function']) {
+        if ($Request['Module']) {
+            if ($Request['Function']) {
                 $Function = $Request['Function'];
-            }
-            else {
+            } else {
                 $Function = "Index";
             }
             $Output = $this->getModule($Request['Module'])->$Function();
-        }
-        else {
-            $Output = $this->getModel("Application")->getView("Application.phtml");
+        } else {
+            $Output = $this->getModule("Layout")->Index();
         }
 
         print $Output;
     }
 }
+
 ?>
