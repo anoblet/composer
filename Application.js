@@ -22,7 +22,6 @@ jQuery(document).ready(function () {
     jQuery(document).on("submit", "form", function (e) {
         var form = this;
         e.preventDefault();
-        // jQuery(this).load(jQuery(this).attr("action"), jQuery(this).serialize());
         jQuery.ajax({
             url: jQuery(this).attr("action"),
             method: "POST",
