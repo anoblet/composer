@@ -102,11 +102,11 @@
             color: #1b1b1b;
         }
     </style>
-    <link rel="stylesheet" href="Application.css">
+    <link rel="stylesheet" href="<?= BASE ?>Application.css">
     <script src="https://use.fontawesome.com/49642d2436.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"
             integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <script src="Application.js"></script>
+    <script src="<?= BASE; ?>Application.js"></script>
 </head>
 <body>
 <div id="top" class="row">
@@ -120,10 +120,10 @@
         </form>
     </div>
     <div id="Navigation">
-        <a href="User/Login"><i class="fa fa-lock" aria-hidden="true"></i></a>
+        <a href="<?= BASE ?>User/Login"><i class="fa fa-lock" aria-hidden="true"></i></a>
         <i class="fa fa-cog" aria-hidden="true"></i>
         <i class="fa fa-cog" aria-hidden="true"></i>
-        <a href="Settings"><i class="fa fa-cog" aria-hidden="true"></i></a>
+        <a href="<?= BASE ?>Settings"><i class="fa fa-cog" aria-hidden="true"></i></a>
     </div>
 </div>
 <div id="left" class="column">
@@ -135,8 +135,8 @@
 <div id="center" class="column">
     Center
 </div>
-<div id="right" src="<?= $this->getURL("User/Info"); ?>" class="column"></div>
-<div id="bottom" src="Layout/Bottom">
+<div id="right" src="<?= BASE ?>User/Info" class="column"></div>
+<div id="bottom" src="<?= BASE ?>Layout/Bottom">
     <div id="copyright">&copy; Andy Noblet 2016</div>
 </div>
 </body>

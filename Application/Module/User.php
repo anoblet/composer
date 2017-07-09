@@ -7,19 +7,8 @@ namespace Application\Module {
         public function Index() {
             return $this->Login();
         }
-        public function getInfo()
-        {
-            $User = $this->getModel("User")->Template("User.phtml");
-            $Data = array("User" => $User);
-
-            $HTML = $this->getTemplate($Data, "User.phtml");
-            // $User->Template();
-            // $HTML = $this->getModel("User")->Template(null, $Data);
-
-            return $User;
-        }
-
         public function Login() {
+            var_dump($this->getRequest());
             if (isset($User) && isset($Password)) ;
             else {
                 $View = $this->getView("Login.phtml");

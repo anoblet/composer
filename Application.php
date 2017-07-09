@@ -7,6 +7,7 @@ spl_autoload_register("Autoload");
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+// Set Base
 $Parts = explode("/", $_SERVER['SCRIPT_NAME']);
 array_pop($Parts);
 $Base = implode("/", $Parts);
@@ -47,13 +48,21 @@ class Application {
         array_pop($Parts);
         $Base = implode("/", $Parts);
         $Path = str_replace($Base, null, $_SERVER['REQUEST_URI']);
-
         $Parts = explode("/", $Path);
-        if (isset($Parts[1]));
+        if (isset($Parts[1])) {
+            $Request['Module'] = $Parts[1];
+        }
         else{
             $Request['Module'] = "Layout";
         }
+        if (isset($Parts[2])) {
+            $Request['Action'] = $Parts[2];
+        }
+        else{
+            $Request['Action'] = "Index";
+        }
 
+        /*
         if ($Path == "/") {
             $Request = null;
         } else {
@@ -61,11 +70,14 @@ class Application {
 
             $Request['Module'] = $Parts[1];
             if (isset($Parts[2])) {
-                $Request['Function'] = $Parts[2];
+                $Request['Action'] = $Parts[2];
             } else {
-                $Request['Function'] = "Index";
+                $Request['Action'] = "Index";
             }
         }
+        */
+
+        $Request['Arguments'] = $_REQUEST;
 
         return $Request;
     }
@@ -117,8 +129,8 @@ class Application {
     public function Start() {
         $Request = $this->getRequest();
         if ($Request['Module']) {
-            if ($Request['Function']) {
-                $Function = $Request['Function'];
+            if ($Request['Action']) {
+                $Function = $Request['Action'];
             } else {
                 $Function = "Index";
             }
