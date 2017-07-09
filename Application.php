@@ -49,6 +49,7 @@ class Application {
         $Base = implode("/", $Parts);
         $Path = str_replace($Base, null, $_SERVER['REQUEST_URI']);
         $Parts = explode("/", $Path);
+
         if (isset($Parts[1])) {
             $Request['Module'] = $Parts[1];
         }
@@ -61,21 +62,6 @@ class Application {
         else{
             $Request['Action'] = "Index";
         }
-
-        /*
-        if ($Path == "/") {
-            $Request = null;
-        } else {
-            $Parts = explode("/", $Path);
-
-            $Request['Module'] = $Parts[1];
-            if (isset($Parts[2])) {
-                $Request['Action'] = $Parts[2];
-            } else {
-                $Request['Action'] = "Index";
-            }
-        }
-        */
 
         $Request['Arguments'] = $_REQUEST;
 
