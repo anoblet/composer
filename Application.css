@@ -88,10 +88,28 @@ select {
     color: #ffffff;
     text-align: center;
     padding: 1em;
+    outline: none;
+}
+select:focus {
+    outline: 0 !important;
 }
 option {
+    outline: 0 !important;
     background: #444444;
     color: #ffffff;
     border: 0;
     padding: 1em;
+
+}
+
+option:focus {
+    outline: 0 !important;
+    border:none;
+    box-shadow:none;
+}
+
+*:focus {
+    outline: 0 !important;
+    border: 0 !important;
+    box-shadow: 0 !important;
 }
