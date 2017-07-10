@@ -80,3 +80,18 @@ form {
 .box .title {
     width: 100%;
 }
+
+select {
+    -webkit-appearance: none;
+    background: transparent;
+    border: 0;
+    color: #ffffff;
+    text-align: center;
+    padding: 1em;
+}
+option {
+    background: #444444;
+    color: #ffffff;
+    border: 0;
+    padding: 1em;
+}

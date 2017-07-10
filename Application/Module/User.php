@@ -10,8 +10,12 @@ namespace Application\Module {
         public function Login() {
             $Request = $this->getRequest();
             $User = $this->getModel("User");
-            $User->setEmail($Request['Arguments']['Email']);
-            $User->setPassword($Request['Arguments']['Password']);
+            if (isset($Request['Arguments']['Email'])) {
+                $User->setEmail($Request['Arguments']['Email']);
+            }
+            if (isset($Request['Arguments']['Password'])) {
+                $User->setPassword($Request['Arguments']['Password']);
+            }
 
             $Error = null;
 
@@ -21,7 +25,7 @@ namespace Application\Module {
                 $Error = "No email given.";
             };
             $Password = $User->getPassword();
-            if(isset($Password)) ;
+            if (isset($Password)) ;
             else {
                 var_dump($User->getPassword());
                 $Error = "No password given.";

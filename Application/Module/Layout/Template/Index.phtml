@@ -107,6 +107,8 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"
             integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="<?= BASE; ?>Application.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 </head>
 <body>
 <div id="top" class="row">
@@ -120,10 +122,10 @@
         </form>
     </div>
     <div id="Navigation">
-        <a href="<?= BASE ?>User/Login"><i class="fa fa-lock" aria-hidden="true"></i></a>
-        <i class="fa fa-cog" aria-hidden="true"></i>
-        <i class="fa fa-cog" aria-hidden="true"></i>
-        <a href="<?= BASE ?>Settings"><i class="fa fa-cog" aria-hidden="true"></i></a>
+        <select>
+            <option selected hidden>My Account</option>
+            <option value="User/Login">Sign In / Register</option>
+        </select>
     </div>
 </div>
 <div id="left" class="column">
