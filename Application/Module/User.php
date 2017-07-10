@@ -20,11 +20,12 @@ namespace Application\Module {
             $Error = null;
 
             $Email = $User->getEmail();
+            $Password = $User->getPassword();
+
             if (isset($Email)) ;
             else {
                 $Error = "No email given.";
             };
-            $Password = $User->getPassword();
             if (isset($Password)) ;
             else {
                 $Error = "No password given.";
