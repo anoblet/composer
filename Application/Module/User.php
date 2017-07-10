@@ -14,8 +14,6 @@ namespace Application\Module {
                 $User->setEmail($Request['Arguments']['Email']);
             }
             if (isset($Request['Arguments']['Password'])) {
-                print "Here";
-
                 $User->setPassword($Request['Arguments']['Password']);
             }
 
