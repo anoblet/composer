@@ -27,7 +27,6 @@ namespace Application\Module {
             $Password = $User->getPassword();
             if (isset($Password)) ;
             else {
-                var_dump($User->getPassword());
                 $Error = "No password given.";
             }
 
