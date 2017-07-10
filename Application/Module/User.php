@@ -14,6 +14,8 @@ namespace Application\Module {
                 $User->setEmail($Request['Arguments']['Email']);
             }
             if (isset($Request['Arguments']['Password'])) {
+                print "Here";
+
                 $User->setPassword($Request['Arguments']['Password']);
             }
 
@@ -22,11 +24,12 @@ namespace Application\Module {
             $Email = $User->getEmail();
             $Password = $User->getPassword();
 
-            if (isset($Email)) ;
+
+            if (!empty($Email));
             else {
                 $Error = "No email given.";
-            };
-            if (isset($Password)) ;
+            }
+            if (!empty($Password));
             else {
                 $Error = "No password given.";
             }
