@@ -44,7 +44,8 @@ class Application {
         return get_called_class();
     }
     protected function getRequest() {
-        $Parts = explode("/", $_SERVER['SCRIPT_NAME']);
+        $Name = str_replace($_SERVER['DOCUMENT_ROOT'], null, $_SERVER['SCRIPT_FILENAME']);
+        $Parts = explode("/", $Name);
         array_pop($Parts);
         $Base = implode("/", $Parts);
         $Path = str_replace($Base, null, $_SERVER['REQUEST_URI']);
@@ -120,7 +121,7 @@ class Application {
             } else {
                 $Function = "Index";
             }
-            $Output = $this->getModule($Request['Module'])->$Function();
+            $Output = $this->getModule($Request['Module'])->{$Function}();
         } else {
             $Output = $this->getModule("Layout")->Index();
         }
