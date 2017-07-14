@@ -8,7 +8,8 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 // Set Base
-$Parts = explode("/", $_SERVER['SCRIPT_NAME']);
+$Name = str_replace($_SERVER['DOCUMENT_ROOT'], null, $_SERVER['SCRIPT_FILENAME']);
+$Parts = explode("/", $Name);
 array_pop($Parts);
 $Base = implode("/", $Parts);
 $Base = $Base . "/";
