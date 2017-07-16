@@ -5,17 +5,20 @@
  * Created by Andy Noblet on 7/4/2017.
  */
 
+function loadURLs(elements) {
+    elements.each(function () {
+        jQuery(this).load(jQuery(this).attr("src"), function () {
+            var elements = jQuery(this).find("div[src]");
+            loadURLs(elements);
+        });
+
+    })
+}
+
 jQuery.noConflict();
 jQuery(document).ready(function () {
-    jQuery(document).on("ready", "div", function() {
-        alert("Me");
-    })
-    jQuery("div[src]").each(function () {
-        jQuery(this).load(jQuery(this).attr("src"));
-        jQuery("div[src]").each(function () {
-            jQuery(this).load(jQuery(this).attr("src"));
-        });
-    });
+    var elements = jQuery("body").find("div[src]");
+    loadURLs(elements);
     jQuery("a").on("click", function (e) {
         e.preventDefault();
         jQuery("#center").load(jQuery(this).attr("href"));
