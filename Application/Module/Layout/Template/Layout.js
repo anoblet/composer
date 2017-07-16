@@ -5,11 +5,24 @@
  * Created by Andy Noblet on 7/4/2017.
  */
 
+function style(element) {
+    styleSelect(element)
+}
+function styleSelect(element) {
+    jQuery(element).find("select").each(function () {
+        jQuery(this).selectmenu({
+            change: function () {
+                jQuery("#center").load(jQuery(this).val());
+            }
+        });
+    });
+}
 function loadURLs(elements) {
     elements.each(function () {
         jQuery(this).load(jQuery(this).attr("src"), function () {
             var elements = jQuery(this).find("div[src]");
             loadURLs(elements);
+            style(this);
         });
 
     })
