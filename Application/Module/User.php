@@ -10,10 +10,10 @@ namespace Application\Module {
         public function Login() {
             $Request = $this->getRequest();
             $User = $this->getModel("User");
-            if (isset($Request['Arguments']['Email'])) {
+            if (isset($Request['Arguments']['Email']) && $Request['Arguments']['Email'] !== "") {
                 $User->setEmail($Request['Arguments']['Email']);
             }
-            if (isset($Request['Arguments']['Password'])) {
+            if (isset($Request['Arguments']['Password']) && $Request['Arguments']['Password'] !== "") {
                 $User->setPassword($Request['Arguments']['Password']);
             }
 
