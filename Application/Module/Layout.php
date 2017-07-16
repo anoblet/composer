@@ -10,6 +10,9 @@ namespace Application\Module {
         protected function Navigation() {
             return $this->getView("Navigation.phtml");
         }
+        protected function Top() {
+            return $this->getView("Top.phtml");
+        }
         protected function Bottom() {
             return $this->getView("Bottom.phtml");
         }
