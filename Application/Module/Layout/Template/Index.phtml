@@ -106,23 +106,19 @@
     <script src="https://use.fontawesome.com/49642d2436.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"
             integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <script src="Application/Module/Layout/Template/Layout.js"></script>
+    <script src="<?= BASE; ?>Application.js"></script>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 </head>
 <body>
 <div id="top" class="row" src="Layout/Top">
 </div>
-<div id="left" class="column">
-    <div class="box">
-        <div class="title">Title</div>
-        <div class="content">Content</div>
-    </div>
+<div id="left" class="column" src="Layout/Left">
 </div>
 <div id="center" class="column">
     Center
 </div>
-<div id="right" src="<?= BASE ?>User/Info" class="column"></div>
+<div id="right" src="<?= BASE ?>Layout/Right" class="column"></div>
 <div id="bottom" src="<?= BASE ?>Layout/Bottom">
     <div id="copyright">&copy; Andy Noblet 2016</div>
 </div>
