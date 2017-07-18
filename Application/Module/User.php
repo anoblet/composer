@@ -11,10 +11,10 @@ namespace Application\Module {
             $Request = $this->getRequest();
             $User = $this->getModel("User");
 
-            if (empty($Request['Arguments']['Email'])) {
+            if (!empty($Request['Arguments']['Email'])) {
                 $User->setEmail($Request['Arguments']['Email']);
             }
-            if (empty($Request['Arguments']['Password'])) {
+            if (!empty($Request['Arguments']['Password'])) {
                 $User->setPassword($Request['Arguments']['Password']);
             }
 
