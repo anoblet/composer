@@ -3,10 +3,6 @@ namespace Application;
 
 class Module extends \Application
 {
-    public function __construct()
-    {
-    }
-
     public function getModel($model = null)
     {
         $class = get_class($this);
