@@ -70,16 +70,6 @@ form {
     justify-content: center;
     width: 20%;
 }
-
-.box {
-    width: 100%;
-    display: initial;
-}
-
-.box .title {
-    width: 100%;
-}
-
 select {
     -webkit-appearance: none;
     background: transparent;
