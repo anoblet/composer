@@ -23,14 +23,14 @@ namespace Application\Module {
             $Email = $User->getEmail();
             $Password = $User->getPassword();
 
-            if (isset($Email)) ;
-            else {
+            if (isset($Email)) {
+                if (isset($Password)) ;
+                else {
+                    $Error = "No password given.";
+                }
+            } else {
                 $Error = "No email given.";
             };
-            if (isset($Password)) ;
-            else {
-                $Error = "No password given.";
-            }
 
             $User->Error = $Error;
 
