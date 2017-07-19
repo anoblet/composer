@@ -33,7 +33,7 @@ jQuery.noConflict();
 jQuery(document).ready(function () {
     var elements = jQuery("body").find("div[src]");
     loadURLs(elements);
-    jQuery("a").on("click", function (e) {
+    jQuery(document).on("click", "#Navigation a", function (e) {
         e.preventDefault();
         jQuery("#center").load(jQuery(this).attr("href"));
     });
