@@ -1,4 +1,6 @@
 
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -8,7 +10,7 @@
 body {
     margin: 0;
     color: #ffffff;
-    font-family: arial;
+    font-family: "Open Sans";
 }
 
 body, div {
@@ -102,3 +104,4 @@ option:focus {
     border: 0 !important;
     box-shadow: 0 !important;
 }
+
