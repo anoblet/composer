@@ -6,15 +6,23 @@
  */
 
 function style(element) {
-    styleSelect(element)
+    styleSelect(element);
+    styleButton(element);
 }
 function styleSelect(element) {
     jQuery(element).find("select").each(function () {
         jQuery(this).selectmenu({
             change: function () {
-                jQuery("#center").load(jQuery(this).val());
+                jQuery("#center").load(jQuery(this).val(), function () {
+                    style(this);
+                });
             }
         });
+    });
+}
+function styleButton(element) {
+    jQuery(element).find("input[type='submit']").each(function () {
+        jQuery(this).button();
     });
 }
 function loadURLs(elements) {
@@ -35,7 +43,6 @@ jQuery(document).ready(function () {
     jQuery("a").on("click", function (e) {
         e.preventDefault();
         jQuery("#center").load(jQuery(this).attr("href"));
-
     });
     jQuery("select").on("change,", function () {
         jQuery("#center").load(jQuery(this).attr("href"));
