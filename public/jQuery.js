@@ -1,10 +1,3 @@
-/**
- * Created by Andy Noblet on 7/15/2017.
- */
-/**
- * Created by Andy Noblet on 7/4/2017.
- */
-
 function style(element) {
     styleSelect(element);
     styleButton(element);
