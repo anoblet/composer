@@ -40,7 +40,7 @@ jQuery(document).ready(function () {
     jQuery("select").on("change,", function () {
         jQuery("#center").load(jQuery(this).attr("href"));
     });
-    jQuery(document).on("submit", "form", function (e) {
+    jQuery(document).on("submit", "#center form", function (e) {
         var form = this;
         e.preventDefault();
         jQuery.ajax({
@@ -49,6 +49,17 @@ jQuery(document).ready(function () {
             data: jQuery(this).serialize()
         }).done(function (response) {
             jQuery(form).replaceWith(response);
+        });
+    });
+    jQuery(document).on("submit", "#Search form", function (e) {
+        var form = this;
+        e.preventDefault();
+        jQuery.ajax({
+            url: jQuery(this).attr("action"),
+            method: "POST",
+            data: jQuery(this).serialize()
+        }).done(function (response) {
+            jQuery("#center").html(response);
         });
     })
 })

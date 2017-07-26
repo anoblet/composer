@@ -1,6 +1,14 @@
-<form action="<?=BASE?>User/Login" method="POST">
-    <input type="text" name="Email" value="<?=$User->Email;?>"/>
-    <input type="password" name="Password" value="<?=$User->Password;?>" />
-    <input type="submit" />
-    <?=$User->Error;?>
+<form action="<?= BASE ?>User/Login" method="POST">
+    <div class="form-group">
+        <label for="Email">Email: </label>
+        <input type="text" name="Email" value="<?= $User->Email; ?>" class="form-control"/></div>
+    <div class="form-group">
+        <label for="Password">Password: </label>
+        <input type="password" name="Password" value="<?= $User->Password; ?>" class="form-control"/></div>
+    <div class="form-group row">
+        <div class="offset-sm-2 col-sm-10">
+            <button type="submit" class="btn btn-primary">Sign in</button>
+        </div>
+    </div>
+    <?= $User->Error; ?>
 </form>

@@ -20,20 +20,22 @@
             crossorigin="anonymous"></script>
     <script src="jQuery.js"></script>
     <link rel="stylesheet" href="<?= BASE ?>Style.css">
+    <script type="text/javascript"
+            src="http://localhost:8080/s/53a6b67871465ed7b4838db208cf960f-T/-6pq3en/74002/b6b48b2829824b869586ac216d119363/2.0.23/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?locale=en-US&collectorId=a76297e0"></script>
 </head>
 <body>
-<div id="top" src="<?= $this->getURL("Layout/Top"); ?>">
+<div id="box" class="container-fluid">
+    <div id="top" class="row" src="<?= $this->getURL("Layout/Top"); ?>">
+    </div>
+    <div id="left" class="column" src="<?= $this->getURL("Layout/Left"); ?>">
+    </div>
+    <div id="center" class="column">
+        Center
+    </div>
+    <div id="right" src="<?= $this->getURL("Layout/Right"); ?>" class="column"></div>
+    <div id="bottom" src="<?= $this->getURL("Layout/Bottom"); ?>">
+        <div id="copyright">&copy; Andy Noblet 2016</div>
+    </div>
 </div>
-<div id="left" class="column" src="Layout/Left">
-</div>
-<div id="center" class="column">
-    Center
-</div>
-<div id="right" src="<?= BASE ?>Layout/Right" class="column"></div>
-<div id="bottom" src="<?= BASE ?>Layout/Bottom">
-    <div id="copyright">&copy; Andy Noblet 2016</div>
-</div>
-<script type="text/javascript"
-        src="http://localhost:8080/s/53a6b67871465ed7b4838db208cf960f-T/-6pq3en/74002/b6b48b2829824b869586ac216d119363/2.0.23/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?locale=en-US&collectorId=a76297e0"></script>
 </body>
 </html>
