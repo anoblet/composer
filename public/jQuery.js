@@ -1,3 +1,14 @@
+function refresh(element) {
+    var elements = jQuery(element).find("div[src]");
+    elements.each(function () {
+        jQuery(this).load(jQuery(this).attr("src"), function () {
+            refresh(this);
+            style(this);
+        });
+
+    })
+}
+
 function style(element) {
     styleSelect(element);
     styleButton(element);
@@ -18,21 +29,15 @@ function styleButton(element) {
         jQuery(this).button();
     });
 }
-function loadURLs(elements) {
-    elements.each(function () {
-        jQuery(this).load(jQuery(this).attr("src"), function () {
-            var elements = jQuery(this).find("div[src]");
-            loadURLs(elements);
-            style(this);
-        });
-
-    })
-}
 
 jQuery.noConflict();
 jQuery(document).ready(function () {
-    var elements = jQuery("body").find("div[src]");
-    loadURLs(elements);
+    refresh(this);
+    // All on functions which are triggered on dynamic content
+    jQuery(document).on("click", "#center a", function (e) {
+        e.preventDefault();
+        jQuery("#center").load(jQuery(this).attr("href"));
+    });
     jQuery(document).on("click", "#Navigation a", function (e) {
         e.preventDefault();
         jQuery("#center").load(jQuery(this).attr("href"));

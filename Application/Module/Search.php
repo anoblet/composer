@@ -4,7 +4,7 @@ namespace Application\Module;
 // use Application\Module\Database;
 
 class Search extends \Application\Module  {
-    protected function Index() {
+    public function Index() {
         $Request = $this->getRequest();
         $Search = $Request['Arguments']['Search'];
         $Database = $this->getModule("Database");

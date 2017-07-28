@@ -45,25 +45,8 @@ class Application {
         return get_called_class();
     }
     protected function getRequest() {
-        $Name = str_replace($_SERVER['DOCUMENT_ROOT'], null, $_SERVER['SCRIPT_FILENAME']);
-        $Parts = explode("/", $Name);
-        array_pop($Parts);
-        $Base = implode("/", $Parts);
-        $Path = str_replace($Base, null, $_SERVER['REQUEST_URI']);
+        $Path = $this->getModule("Controller")->getPath();
         $Parts = explode("/", $Path);
-
-        if (isset($Parts[1])) {
-            $Request['Module'] = $Parts[1];
-        }
-        else{
-            $Request['Module'] = "Layout";
-        }
-        if (isset($Parts[2])) {
-            $Request['Action'] = $Parts[2];
-        }
-        else{
-            $Request['Action'] = "Index";
-        }
 
         $Request['Arguments'] = $_REQUEST;
 
@@ -116,17 +99,7 @@ class Application {
     }
     public function Start() {
         $this->getModule("Session")->createSession();
-        $Request = $this->getRequest();
-        if ($Request['Module']) {
-            if ($Request['Action']) {
-                $Function = $Request['Action'];
-            } else {
-                $Function = "Index";
-            }
-            $Output = $this->getModule($Request['Module'])->{$Function}();
-        } else {
-            $Output = $this->getModule("Layout")->Index();
-        }
+        $Output = $this->getModule("Controller")->Execute();
 
         print $Output;
     }

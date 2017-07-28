@@ -10,7 +10,7 @@ namespace Application\Module {
         }
 
         public function Login() {
-            if(isset($_SESSION['User'])) {
+            if (isset($_SESSION['User'])) {
                 return $this->MyAccount();
             }
             $Request = $this->getRequest();
@@ -20,14 +20,12 @@ namespace Application\Module {
 
             if (!empty($Request['Arguments']['Email'])) {
                 $User->setEmail($Request['Arguments']['Email']);
-            }
-            else {
+            } else {
                 $Error = "No email given.";
             }
             if (!empty($Request['Arguments']['Password'])) {
                 $User->setPassword($Request['Arguments']['Password']);
-            }
-            else {
+            } else {
                 $Error = "No password given.";
             }
 
@@ -45,14 +43,39 @@ namespace Application\Module {
             $Resource = mysqli_query($Connection, $Query);
             $Result = mysqli_fetch_array($Resource, MYSQLI_ASSOC);
 
-            if($Result) {
+            if ($Result) {
                 $_SESSION['User'] = true;
-            }
-            else {
+            } else {
                 $Message = "Invalid username and/or password.";
             }
             $View = $this->getView("Login.phtml", array("User" => $User));
 
+
+            return $View;
+        }
+
+        public function MyAccount() {
+            if (!$this->getModule("Session")->isUserLoggedIn()) {
+                $Controller = $this->getModule("Controller");
+                $Controller->setPath("/User/Login");
+                return $Controller->Execute();
+            } else {
+                $View = $this->getView("MyAccount.phtml");
+            }
+            return $View;
+        }
+
+        public Function Logout() {
+            session_destroy();
+            $View = $this->getView("Logout.phtml");
+
+            return $View;
+        }
+
+        public function Register() {
+            $User = $this->getModel("User");
+
+            $View = $this->getView("Register.phtml", array("User" => $User));
 
             return $View;
         }
@@ -62,16 +85,6 @@ namespace Application\Module {
             $View = $this->getView("User.phtml", array("User" => $User));
 
             return $View;
-        }
-
-        public function MyAccount() {
-            $View = $this->getView("MyAccount.phtml");
-
-            return $View;
-        }
-
-        public Function Logout() {
-            session_destroy();
         }
     }
 }
