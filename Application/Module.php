@@ -38,7 +38,7 @@ class Module extends \Application {
     }
 
     public static function getInstance() {
-        return new self;
+        return new static;
     }
 }
 ?>

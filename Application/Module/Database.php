@@ -31,7 +31,6 @@ namespace Application\Module {
                     }
                 }
             }
-            print $Query;
             mysqli_query($Connection, $Query);
         }
 
@@ -40,7 +39,7 @@ namespace Application\Module {
         }
         public function Execute($Query) {
             $Connection = $this->Connect();
-            $String = "{$Query->getAction()} {$Query->getFields()} FROM {$Query->getTable()}";
+            $String = "{$Query->getAction()} {$Query->getFields()} FROM `{$Query->getTable()}";
             if($Query->getArguments()) {
                 $String .= " WHERE ";
                 foreach($Query->getArguments() as $Argument => $Value) {

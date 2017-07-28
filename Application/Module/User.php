@@ -10,9 +10,6 @@ namespace Application\Module {
         }
 
         public function Login() {
-            if (isset($_SESSION['User'])) {
-                return $this->MyAccount();
-            }
             $Request = $this->getRequest();
             $User = $this->getModel("User");
 
@@ -48,6 +45,11 @@ namespace Application\Module {
             } else {
                 $Message = "Invalid username and/or password.";
             }
+
+            if ($this->getModule("Session")->isUserLoggedIn()) {
+                return $this->MyAccount();
+            }
+
             $View = $this->getView("Login.phtml", array("User" => $User));
 
 
@@ -66,8 +68,9 @@ namespace Application\Module {
         }
 
         public Function Logout() {
+            unset($_SESSION['User']);
             session_destroy();
-            $View = $this->getView("Logout.phtml");
+            $View = $this->getModule("Controller")->setPath("/User/Login")->Execute();
 
             return $View;
         }

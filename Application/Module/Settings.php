@@ -2,7 +2,7 @@
 namespace Application\Module;
 
 class Settings extends \Application\Module {
-    protected function Index() {
+    public function Index() {
         return $this->getView("Settings.phtml");
     }
 }

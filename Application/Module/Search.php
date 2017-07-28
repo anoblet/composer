@@ -1,13 +1,15 @@
 <?php
 namespace Application\Module;
 
-// use Application\Module\Database;
+use \Application\Module\Database;
 
 class Search extends \Application\Module  {
     public function Index() {
         $Request = $this->getRequest();
         $Search = $Request['Arguments']['Search'];
         $Database = $this->getModule("Database");
+        $Database = Database::getInstance();
+        var_dump($Database);
         $Query = $Database->createQuery();
         $Query->setAction("SELECT");
         $Query->setFields("*");
