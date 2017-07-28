@@ -11,6 +11,8 @@ namespace Application\Module {
             $Request = $this->getRequest();
             $User = $this->getModel("User");
 
+            $Error = null;
+
             if (!empty($Request['Arguments']['Email'])) {
                 $User->setEmail($Request['Arguments']['Email']);
             }
@@ -23,20 +25,6 @@ namespace Application\Module {
             else {
                 $Error = "No password given.";
             }
-
-            $Error = null;
-
-            $Email = $User->getEmail();
-            $Password = $User->getPassword();
-
-            if (isset($Email)) {
-                if (isset($Password)) ;
-                else {
-                    $Error = "No password given.";
-                }
-            } else {
-                $Error = "No email given.";
-            };
 
             $Database = $this->getModule("Database");
             $Query = $Database->createQuery();
