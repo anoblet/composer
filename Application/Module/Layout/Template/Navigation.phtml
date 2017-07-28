@@ -4,7 +4,12 @@
         <span class="caret"></span>
     </button>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-        <li><a href="User/Login">Sign In / Register</a></li>
+        <?php if ($this->getModule("Session")->isUserLoggedIn()): ?>
+            <li><a href="User/MyAccount">My Account</a></li>
+            <li><a href="User/Logout">Sign Out</a></li>
+        <?php else: ?>
+            <li><a href="User/Login">Sign In / Register</a></li>
+        <?php endif; ?>
         <li><a href="Settings">Settings</a></li>
     </ul>
 </div>

@@ -2,12 +2,17 @@
 
 namespace Application\Module {
 
+    use Application\Module\Database;
+
     class User extends \Application\Module {
         public function Index() {
             return $this->Login();
         }
 
         public function Login() {
+            if(isset($_SESSION['User'])) {
+                return $this->MyAccount();
+            }
             $Request = $this->getRequest();
             $User = $this->getModel("User");
 
@@ -32,7 +37,7 @@ namespace Application\Module {
             $Query->setFields("*");
             $Query->setTable("User");
             $Query->setArguments(array("Email" => $User->getEmail(), "Password" => $User->getPassword()));
-            // var_dump($Query);w
+            // var_dump($Query);
 
             $Connection = $Database->Connect();
 
@@ -41,10 +46,10 @@ namespace Application\Module {
             $Result = mysqli_fetch_array($Resource, MYSQLI_ASSOC);
 
             if($Result) {
-                print "Here";
+                $_SESSION['User'] = true;
             }
             else {
-
+                $Message = "Invalid username and/or password.";
             }
             $View = $this->getView("Login.phtml", array("User" => $User));
 
@@ -57,6 +62,16 @@ namespace Application\Module {
             $View = $this->getView("User.phtml", array("User" => $User));
 
             return $View;
+        }
+
+        public function MyAccount() {
+            $View = $this->getView("MyAccount.phtml");
+
+            return $View;
+        }
+
+        public Function Logout() {
+            session_destroy();
         }
     }
 }

@@ -115,6 +115,7 @@ class Application {
 
     }
     public function Start() {
+        $this->getModule("Session")->createSession();
         $Request = $this->getRequest();
         if ($Request['Module']) {
             if ($Request['Action']) {
