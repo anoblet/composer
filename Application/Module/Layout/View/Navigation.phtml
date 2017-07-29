@@ -6,7 +6,7 @@ Here
     </button>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
         <?php if (Application::getStaticModule("Session")->isUserLoggedIn()): ?>
-            <li><a href="User/MyAccount">My Account</a></li>
+            <li><a href="User/Index/MyAccount">My Account</a></li>
             <li><a href="Settings">Settings</a></li>
             <li><a href="User/Index/Logout">Sign Out</a></li>
         <?php else: ?>

@@ -53,7 +53,6 @@ class Index extends \Application\Controller  {
 
         $View = User::getStaticView("Login.phtml", array("User" => $User));
 
-
         return $View;
     }
 
@@ -77,9 +76,33 @@ class Index extends \Application\Controller  {
     }
 
     public function Register() {
-        $User = $this->getModel("User");
+        $User = User::getStaticModel("User");
+        $Request = $this->getRequest();
+        if (!empty($Request['Arguments']['Email'])) {
+            $User->setEmail($Request['Arguments']['Email']);
+        } else {
+            $Error = "No email given.";
+        }
+        if (!empty($Request['Arguments']['Password'])) {
+            $User->setPassword($Request['Arguments']['Password']);
+        } else {
+            $Error = "No password given.";
+        }
+        // $Database = $this->getModule("Database");
+        $Database = Database::getInstance();
+        $Query = $Database->createQuery();
+        $Query->setAction("INSERT");
+        $Query->setFields("*");
+        $Query->setTable("User");
+        $Arguments[] = array("Column" => "Email", "Value" => $User->getEmail());
+        $Arguments[] = array("Column" => "Password", "Value" => $User->getPassword());
+        $Query->setArguments($Arguments);
+        $Result = $Database->Execute($Query);
 
-        $View = $this->getView("Register.phtml", array("User" => $User));
+
+        // return $this->getView("Index.phtml");
+
+        $View = User::getStaticView("Register.phtml", array("User" => $User));
 
         return $View;
     }

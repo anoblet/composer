@@ -1,4 +1,4 @@
-<form action="<?= BASE ?>User/Login" method="POST">
+<form action="<?= BASE ?>User/Index/Register" method="POST">
     <div class="form-group">
         <label for="Email">Email: </label>
         <input type="text" name="Email" value="<?= $User->Email; ?>" class="form-control"/></div>
@@ -11,7 +11,7 @@
         </div>
     </div>
     <div class="form-group row">
-        Have an account? <a href="User/Login">Login</a>
+        Have an account? <a href="<?=Application::getURL("User/Index/Login");?>">Login</a>
     </div>
 </form>
 <script>
