@@ -24,15 +24,10 @@ $Application->Start();
 
 class Application {
     protected static $resource;
+
     protected function __construct() {
     }
-    protected function autoload($class) {
-        $class = strtolower($class);
-        $file = $class . ".php";
-        if (file_exists($file)) {
-            include($file);
-        }
-    }
+
     public static function getSingleton() {
         if (isset(static::$resource)) ;
         else {
@@ -41,9 +36,34 @@ class Application {
 
         return static::$resource;
     }
+
     public function getClass() {
         return get_called_class();
     }
+
+    public function getModel($Model = null) {
+        $Class = get_called_class();
+        $Model = "$Class\\Model\\$Model";
+        $Model = new $Model;
+
+        return $Model;
+    }
+
+    public function Start() {
+        $this->getModule("Session")->createSession();
+        $Output = $this->getModule("Controller")->Execute();
+
+        print $Output;
+    }
+
+    protected function autoload($class) {
+        $class = strtolower($class);
+        $file = $class . ".php";
+        if (file_exists($file)) {
+            include($file);
+        }
+    }
+
     protected function getRequest() {
         $Path = $this->getModule("Controller")->getPath();
         $Parts = explode("/", $Path);
@@ -52,17 +72,12 @@ class Application {
 
         return $Request;
     }
+
     public function getModule($Module) {
         $Module = "Application\\Module\\" . $Module;
         return new $Module;
     }
-    public function getModel($Model = null) {
-        $Class = get_called_class();
-        $Model = "$Class\\Model\\$Model";
-        $Model = new $Model;
 
-        return $Model;
-    }
     protected function getView($View, $Data = null) {
         if (isset($View)) ;
         else {
@@ -77,31 +92,33 @@ class Application {
             $Class = implode("\\", $Parts);
         }
         $Class = str_replace("\\", DIRECTORY_SEPARATOR, $Class);
+
         $File = $Class . DIRECTORY_SEPARATOR . "Template" . DIRECTORY_SEPARATOR . $View;
+        $File1 = __DIR__ . DIRECTORY_SEPARATOR . $Class . DIRECTORY_SEPARATOR . "View" . DIRECTORY_SEPARATOR . $View;
 
         ob_start();
         if (isset($Data)) {
             extract($Data);
         }
-        include($File);
+        if (file_exists($File1)) {
+            include $File1;
+        } else {
+            include($File);
+        }
         $HTML = ob_get_contents();
         ob_get_clean();
 
         return $HTML;
     }
+
     protected function getURL($Path = null) {
         $URL = BASE . $Path;
 
         return $URL;
     }
+
     protected function getLayout() {
 
-    }
-    public function Start() {
-        $this->getModule("Session")->createSession();
-        $Output = $this->getModule("Controller")->Execute();
-
-        print $Output;
     }
 }
 
