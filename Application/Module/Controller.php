@@ -46,13 +46,18 @@ namespace Application\Module {
                 $Request['Module'] = "Layout";
             }
             if (isset($Parts[1])) {
-                $Request['Action'] = $Parts[1];
+                $Request['Controller'] = $Parts[1];
             }
             else{
+                $Request['Controller'] = "Index";
+            }
+            if (isset($Parts[2])) {
+                $Request['Action'] = $Parts[2];
+            } else {
                 $Request['Action'] = "Index";
             }
 
-            $Output = $this->getModule($Request['Module'])->{$Request['Action']}();
+            $Output = $this->getModule($Request['Module'])->getController($Request['Controller'])->{$Request['Action']}();
 
             return $Output;
         }

@@ -32,7 +32,7 @@ function styleButton(element) {
 
 jQuery.noConflict();
 jQuery(document).ready(function () {
-    refresh(this);
+    refresh(document);
     // All on functions which are triggered on dynamic content
     jQuery(document).on("click", "#center a", function (e) {
         e.preventDefault();

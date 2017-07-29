@@ -100,6 +100,7 @@ class Application {
         if (isset($Data)) {
             extract($Data);
         }
+        debug_print_backtrace();
         if (file_exists($File1)) {
             include $File1;
         } else {
@@ -111,7 +112,41 @@ class Application {
         return $HTML;
     }
 
-    protected function getURL($Path = null) {
+    public static function getStaticView($View, $Data = null) {
+        if (isset($View)) ;
+        else {
+            $View = $this->__getClass();
+        }
+
+        $Class = get_called_class();
+        $Parts = explode("\\", $Class);
+        $Count = count($Parts);
+        if ($Parts[$Count - 2] == "Model") {
+            array_splice($Parts, -2, 2);
+            $Class = implode("\\", $Parts);
+        }
+        $Class = str_replace("\\", DIRECTORY_SEPARATOR, $Class);
+
+        $File = $Class . DIRECTORY_SEPARATOR . "Template" . DIRECTORY_SEPARATOR . $View;
+        $File1 = __DIR__ . DIRECTORY_SEPARATOR . $Class . DIRECTORY_SEPARATOR . "View" . DIRECTORY_SEPARATOR . $View;
+
+        ob_start();
+        if (isset($Data)) {
+            extract($Data);
+        }
+        if (file_exists($File1)) {
+            include $File1;
+        } else {
+            include($File);
+        }
+        $HTML = ob_get_contents();
+        ob_get_clean();
+
+        return $HTML;
+    }
+
+
+    protected static function getURL($Path = null) {
         $URL = BASE . $Path;
 
         return $URL;

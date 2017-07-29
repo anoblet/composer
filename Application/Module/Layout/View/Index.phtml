@@ -25,14 +25,14 @@
 </head>
 <body>
 <div id="box" class="container-fluid">
-    <div id="top" class="row" src="<?= Application::getURL("Layout/Top"); ?>">
+    <div id="top" class="column" src="<?= Application::getURL("Layout/Index/Top"); ?>">
     </div>
-    <div id="left" class="column" src="<?= Application::getURL("Layout/Left"); ?>">
+    <div id="left" class="column" src="<?= Application::getURL("Layout/Index/Left"); ?>">
     </div>
-    <div id="center" class="column" src="CMS/Home">
+    <div id="center" class="column">
     </div>
-    <div id="right" src="<?= Application::getURL("Layout/Right"); ?>" class="column"></div>
-    <div id="bottom" src="<?= Application::getURL("Layout/Bottom"); ?>">
+    <div id="right" src="<?= Application::getURL("Layout/Index/Right"); ?>" class="column"></div>
+    <div id="bottom" src="<?= Application::getURL("Layout/Index/Bottom"); ?>">
         <div id="copyright">&copy; Andy Noblet 2016</div>
     </div>
 </div>
