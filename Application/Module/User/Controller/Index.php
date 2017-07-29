@@ -88,6 +88,9 @@ class Index extends \Application\Controller  {
         } else {
             $Error = "No password given.";
         }
+        if(isset($Error)) {
+            return User::getStaticView("Register.phtml", array("User" => $User));
+        }
         // $Database = $this->getModule("Database");
         $Database = Database::getInstance();
         $Query = $Database->createQuery();

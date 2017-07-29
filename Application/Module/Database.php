@@ -43,25 +43,23 @@ namespace Application\Module {
             if ($Query->getAction() == "INSERT") {
                 $String = "INSERT INTO {$Query->getTable()} (";
                 $Arguments = $Query->getArguments();
-                $Count = count($Arguments);
-                var_dump($Count);
-                for ($i = 0; $i <= $Count-1; $i++) {
+                $Count = count($Arguments)-1;
+                for ($i = 0; $i <= $Count; $i++) {
                     $String .= "{$Arguments[$i]['Column']}";
-                    if ($i == $Count-1) ;
+                    if ($i == $Count) ;
                     else {
                         $String .= ",";
                     }
                 }
                 $String .= ") VALUES (";
-                for ($i = 0; $i <= $Count-1; $i++) {
+                for ($i = 0; $i <= $Count; $i++) {
                     $String .= "'{$Arguments[$i]['Value']}'";
-                    if ($i == $Count-1) ;
+                    if ($i == $Count) ;
                     else {
                         $String .= ",";
                     }
                 }
                 $String .= ")";
-                var_dump($String);
                 foreach ($Query->getArguments() as $Argument => $Value) {
                     // $String .= "{$Argument},";
                 }
