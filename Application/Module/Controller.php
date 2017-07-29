@@ -5,10 +5,59 @@ namespace Application\Module {
     class Controller extends \Application\Module {
         public $Path;
 
-        public function setPath($Path) {
-            $this->Path = $Path;
+        public function Execute() {
+            $Path = $this->getPath();
+            $Parts = explode("/", $Path);
 
-            return $this;
+
+            if (empty($Parts[0])) {
+                array_shift($Parts);
+            }
+
+            $Count = count($Parts);
+
+            if (empty($Parts[$Count - 1])) {
+                array_pop($Parts);
+            };
+
+            // Modulle/Action
+
+            /*
+            if (isset($Parts[0])) {
+                $Request['Module'] = $Parts[0];
+            } else {
+                $Request['Module'] = "Layout";
+            }
+            if (isset($Parts[1])) {
+                $Request['Action'] = $Parts[1];
+            } else {
+                $Request['Action'] = "Index";
+            }
+
+            $Output = $this->getModule($Request['Module'])->getController($Request['Controller'])->{$Request['Action']}();
+            */
+
+            // Module/Controller/Action
+
+            if (isset($Parts[0])) {
+                $Request['Module'] = $Parts[0];
+            } else {
+                $Request['Module'] = "Layout";
+            }
+            if (isset($Parts[1])) {
+                $Request['Controller'] = $Parts[1];
+            } else {
+                $Request['Controller'] = "Index";
+            }
+            if (isset($Parts[2])) {
+                $Request['Action'] = $Parts[2];
+            } else {
+                $Request['Action'] = "Index";
+            }
+
+            $Output = $this->getModule($Request['Module'])->getController($Request['Controller'])->{$Request['Action']}();
+
+            return $Output;
         }
 
         protected function getPath() {
@@ -25,41 +74,10 @@ namespace Application\Module {
             return $this->Path;
         }
 
-        public function Execute() {
-            $Path = $this->getPath();
-            $Parts = explode("/", $Path);
+        public function setPath($Path) {
+            $this->Path = $Path;
 
-            if(empty($Parts[0])) {
-                array_shift($Parts);
-            }
-
-            $Count = count($Parts);
-
-            if(empty($Parts[$Count-1])) {
-                array_pop($Parts);
-            };
-
-            if (isset($Parts[0])) {
-                $Request['Module'] = $Parts[0];
-            }
-            else{
-                $Request['Module'] = "Layout";
-            }
-            if (isset($Parts[1])) {
-                $Request['Controller'] = $Parts[1];
-            }
-            else{
-                $Request['Controller'] = "Index";
-            }
-            if (isset($Parts[2])) {
-                $Request['Action'] = $Parts[2];
-            } else {
-                $Request['Action'] = "Index";
-            }
-
-            $Output = $this->getModule($Request['Module'])->getController($Request['Controller'])->{$Request['Action']}();
-
-            return $Output;
+            return $this;
         }
     }
 }

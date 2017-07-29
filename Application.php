@@ -73,6 +73,11 @@ class Application {
         return $Request;
     }
 
+    public static function getStaticModule($Module) {
+        $Module = "Application\\Module\\" . $Module;
+        return new $Module;
+    }
+
     public function getModule($Module) {
         $Module = "Application\\Module\\" . $Module;
         return new $Module;

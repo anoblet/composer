@@ -2,15 +2,15 @@ Here
 <div class="dropdown">
     <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
         My Account
-        <span class="caret"></span>
+        <span class="ca ret"></span>
     </button>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-        <?php if ($this->getModule("Session")->isUserLoggedIn()): ?>
+        <?php if (Application::getStaticModule("Session")->isUserLoggedIn()): ?>
             <li><a href="User/MyAccount">My Account</a></li>
             <li><a href="Settings">Settings</a></li>
-            <li><a href="User/Logout">Sign Out</a></li>
+            <li><a href="User/Index/Logout">Sign Out</a></li>
         <?php else: ?>
-            <li><a href="User/Login">Sign In / Register</a></li>
+            <li><a href="User/Index/Login">Sign In / Register</a></li>
         <?php endif; ?>
     </ul>
 </div>
