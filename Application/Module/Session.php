@@ -8,10 +8,9 @@ namespace Application\Module {
         }
 
         public function isUserLoggedIn() {
-            if(!empty($_SESSION['User'])) {
+            if (!empty($_SESSION['User'])) {
                 $Result = true;
-            }
-            else {
+            } else {
                 $Result = false;
             }
             return $Result;
