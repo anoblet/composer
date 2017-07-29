@@ -17,7 +17,6 @@ body, div {
 }
 
 #center {
-    width: 60%;
     padding: 1em;
     color: #333333;
 }
@@ -30,7 +29,6 @@ body, div {
 }
 
 #left, #right {
-    width: 20%;
     background: #444444;
     padding: 1em;
     border: 1em #333333;
@@ -125,11 +123,16 @@ option:focus {
     width: 100%;
 }
 
-#box {
+#Search form {
+    margin: 0 auto;
+}
+
+#Container {
     width: 100%;
     padding: 0;
 }
 
-#Search form {
-    margin: 0 auto;
+#middle {
+    width: 100%;
+    margin: 0;
 }
