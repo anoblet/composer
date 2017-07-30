@@ -102,10 +102,7 @@ class Index extends \Application\Controller  {
         $Query->setArguments($Arguments);
         $Result = $Database->Execute($Query);
 
-
-        // return $this->getView("Index.phtml");
-
-        $View = User::getStaticView("Register.phtml", array("User" => $User));
+        $View = User::getStaticView("Register.phtml", array("Result" => $Result));
 
         return $View;
     }

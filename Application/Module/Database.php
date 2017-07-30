@@ -72,9 +72,24 @@ namespace Application\Module {
                     }
                 }
             }
-            var_dump($String);
             $Resource = mysqli_query($Connection, $String);
-            print mysqli_error($Connection);
+
+            $Message = false;
+
+            if($Resource) {
+                $Message = "Query executed successfully.";
+            }
+            else {
+                if(mysqli_error($Connection)) {
+                    $Message = "Error creating user.";
+                }
+            }
+
+            $Result = new \stdClass();
+            $Result->Data = mysqli_fetch_all($Resource);
+            $Result->Message = $Message;
+
+            return $Result;
         }
     }
 }
