@@ -38,9 +38,11 @@ jQuery(document).ready(function () {
         e.preventDefault();
         jQuery("#center").load(jQuery(this).attr("href"));
     });
-    jQuery(document).on("click", "#Navigation a", function (e) {
+    jQuery(document).on("click", "top a", function (e) {
         e.preventDefault();
-        jQuery("#center").load(jQuery(this).attr("href"));
+        if(jQuery(this).attr("href") !== "#") {
+            jQuery("#center").load(jQuery(this).attr("href"));
+        }
     });
     jQuery("select").on("change,", function () {
         jQuery("#center").load(jQuery(this).attr("href"));
