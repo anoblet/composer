@@ -78,6 +78,9 @@ class Index extends \Application\Controller  {
     public function Register() {
         $User = User::getStaticModel("User");
         $Request = $this->getRequest();
+
+        $Message = null;
+
         if (!empty($Request['Arguments']['Email'])) {
             $User->setEmail($Request['Arguments']['Email']);
         } else {
@@ -88,8 +91,9 @@ class Index extends \Application\Controller  {
         } else {
             $Error = "No password given.";
         }
+
         if(isset($Error)) {
-            return User::getStaticView("Register.phtml", array("User" => $User));
+            return User::getStaticView("Register.phtml", array("Message" => $Error));
         }
         // $Database = $this->getModule("Database");
         $Database = Database::getInstance();
@@ -102,7 +106,15 @@ class Index extends \Application\Controller  {
         $Query->setArguments($Arguments);
         $Result = $Database->Execute($Query);
 
-        $View = User::getStaticView("Register.phtml", array("Result" => $Result));
+        if($Result)
+        {
+            $Message = "User created.";
+        }
+        else {
+            $Message = "Could not create user;";
+        }
+
+        $View = User::getStaticView("Register.phtml", array("Result" => $Result, "Message" => $Message));
 
         return $View;
     }

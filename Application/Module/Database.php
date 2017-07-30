@@ -76,6 +76,8 @@ namespace Application\Module {
 
             $Message = false;
 
+            $Result = new \stdClass();
+
             if($Resource) {
                 $Message = "Query executed successfully.";
             }
@@ -85,11 +87,10 @@ namespace Application\Module {
                 }
             }
 
-            $Result = new \stdClass();
-            $Result->Data = mysqli_fetch_all($Resource);
             $Result->Message = $Message;
 
-            return $Result;
+
+            return $Resource;
         }
     }
 }
