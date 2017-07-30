@@ -120,7 +120,7 @@ class Application {
     public static function getStaticView($View, $Data = null) {
         if (isset($View)) ;
         else {
-            $View = $this->__getClass();
+            // $View = $this->__getClass();
         }
 
         $Class = get_called_class();
