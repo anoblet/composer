@@ -1,57 +1,62 @@
 <?php
+
 namespace Application\Module\User\Controller;
 
 use Application;
 use Application\Module\User;
 use \Application\Module\Database;
 
-class Index extends \Application\Controller  {
+class Index extends \Application\Controller {
     public function Index() {
         return $this->Login();
     }
 
     public function Login() {
-        $Request = $this->getRequest();
-        $User = User::getStaticModel("User");
-
-        $Error = null;
-
-        if (!empty($Request['Arguments']['Email'])) {
-            $User->setEmail($Request['Arguments']['Email']);
-        } else {
-            $Error = "No email given.";
-        }
-        if (!empty($Request['Arguments']['Password'])) {
-            $User->setPassword($Request['Arguments']['Password']);
-        } else {
-            $Error = "No password given.";
-        }
-
-        $Database = $this->getModule("Database");
-        $Query = $Database->createQuery();
-        $Query->setAction("Select");
-        $Query->setFields("*");
-        $Query->setTable("User");
-        $Query->setArguments(array("Email" => $User->getEmail(), "Password" => $User->getPassword()));
-        // var_dump($Query);
-
-        $Connection = $Database->Connect();
-
-        $Query = "SELECT * FROM `User` WHERE `Email` = '{$User->getEmail()}' AND `Password` = '{$User->getPassword()}'";
-        $Resource = mysqli_query($Connection, $Query);
-        $Result = mysqli_fetch_array($Resource, MYSQLI_ASSOC);
-
-        if ($Result) {
-            $_SESSION['User'] = true;
-        } else {
-            $Message = "Invalid username and/or password.";
-        }
-
         if ($this->getModule("Session")->isUserLoggedIn()) {
             return $this->MyAccount();
         }
+        $Message = null;
+        $Error = null;
 
-        $View = User::getStaticView("Login.phtml", array("User" => $User));
+        $Request = $this->getRequest();
+        $User = User::getStaticModel("User");
+
+        if (empty($Request['Arguments']['Email'])) {
+            $Error = "No email given.";
+        } else {
+            $User->setEmail($Request['Arguments']['Email']);
+            if (empty($Request['Arguments']['Password'])) {
+                $Error = "No password given.";
+            } else {
+                $User->setPassword($Request['Arguments']['Password']);
+            }
+        }
+
+        if($Error) {
+            $Message = $Error;
+        }
+
+        else {
+            $Database = $this->getModule("Database");
+            $Query = $Database->createQuery();
+            $Query->setAction("Select");
+            $Query->setFields("*");
+            $Query->setTable("User");
+            $Query->setArguments(array("Email" => $User->getEmail(), "Password" => $User->getPassword()));
+
+            $Connection = $Database->Connect();
+
+            $Query = "SELECT * FROM `User` WHERE `Email` = '{$User->getEmail()}' AND `Password` = '{$User->getPassword()}'";
+            $Resource = mysqli_query($Connection, $Query);
+            $Result = mysqli_fetch_array($Resource, MYSQLI_ASSOC);
+            if ($Result) {
+                $_SESSION['User'] = true;
+            } else {
+                $Message = "Invalid username and/or password.";
+            }
+        }
+
+        $View = User::getStaticView("Login.phtml", array("User" => $User, "Message" => $Message));
 
         return $View;
     }
@@ -92,7 +97,7 @@ class Index extends \Application\Controller  {
             $Error = "No password given.";
         }
 
-        if(isset($Error)) {
+        if (isset($Error)) {
             return User::getStaticView("Register.phtml", array("Message" => $Error));
         }
         // $Database = $this->getModule("Database");
@@ -106,11 +111,9 @@ class Index extends \Application\Controller  {
         $Query->setArguments($Arguments);
         $Result = $Database->Execute($Query);
 
-        if($Result)
-        {
+        if ($Result) {
             $Message = "User created.";
-        }
-        else {
+        } else {
             $Message = "Could not create user;";
         }
 
@@ -126,4 +129,5 @@ class Index extends \Application\Controller  {
         return $View;
     }
 }
+
 ?>
