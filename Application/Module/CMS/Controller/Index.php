@@ -1,7 +1,9 @@
 <?php
-namespace Application\Module {
+namespace Application\Module\CMS\Controller {
 
-    class CMS extends \Application\Module
+    use \Application\Module\CMS;
+
+    class Index extends \Application\Controller
     {
         public function Index() {
 

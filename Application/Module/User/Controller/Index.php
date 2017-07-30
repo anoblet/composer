@@ -59,7 +59,7 @@ class Index extends \Application\Controller  {
     public function MyAccount() {
         if (!$this->getModule("Session")->isUserLoggedIn()) {
             $Controller = $this->getModule("Controller");
-            $Controller->setPath("/User/Login");
+            $Controller->setPath("/User/Index/Login");
             return $Controller->Execute();
         } else {
             $View = User::getStaticView("MyAccount.phtml");
