@@ -75,7 +75,8 @@ class Index extends \Application\Controller {
     public Function Logout() {
         unset($_SESSION['User']);
         session_destroy();
-        $View = $this->getModule("Controller")->setPath("/User/Index/Login")->Execute();
+        $View = $this->getModule("Controller")->setPath("CMS/Index/Home")->Execute();
+        // $View = $this->getModule("Contoller")->Execute();
 
         return $View;
     }
