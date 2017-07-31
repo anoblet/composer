@@ -1,38 +1,50 @@
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle pull-left navbar-left collapsed" data-toggle="collapse"
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header col-sm-4">
+            <ul class="nav navbar-nav navbar-left col-xs-3 col-sm-4">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">
+                        <button class="btn btn-default">
+                            <span class="glyphicon glyphicon-menu-hamburger"></span>
+                        </button>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <?php if (!Application::getStaticModule("Session")->isUserLoggedIn()): ?>
+                            <li><a href="User/Index/Login">Sign In / Register</a></li>
+                        <?php else: ?>
+                            <li><a href="Settings">Settings</a></li>
+                            <li><a href="User/Index/Logout">Sign Out</a></li>
+                        <?php endif; ?>
+                    </ul>
+                </li>
+            </ul>
+            <a class="navbar-brand" href="<?=Application::getURL();?>">Brand</a>
+            <!--
+            <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse"
                     data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="<?= Application::getURL("CMS/Index/Home"); ?>">Brand</a>
+            -->
         </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-form navbar-right">
-                <li class="dropdown">
-                    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" role="button"
-                            aria-haspopup="true">
-                        Menu <span class="caret"></span></button>
-                    <ul class="dropdown-menu">
-                        <?php if (!Application::getStaticModule("Session")->isUserLoggedIn()): ?>
-                            <li><a href="User/Index/Login">Login / Register</a></li>
-                        <?php else: ?>
-                            <li><a href="Settings">Settings</a></li>
-                            <li><a href="User/Index/Logout">Logout</a></li>
-                        <?php endif; ?>
-                    </ul>
-                </li>
+            <ul class="nav navbar-nav">
+
             </ul>
-            <form action="Search" class="navbar-form col-md-1 col-md-offset-3">
-                <div id="Search">
-                    <div class="form-group">
-                        <input name="Search" type="text" class="form-control" placeholder="Search">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Search</button>
+            <ul class="nav navbar-nav navbar-left">
+
+            </ul>
+            <form id="Search" action="Search" method="POST" class="navbar-form navbar-left">
+                <div class="form-group">
+                    <input name="Search" type="text" class="form-control" placeholder="Search">
                 </div>
+                <button type="submit" class="btn btn-default btn-sm">Search</button>
             </form>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

@@ -38,7 +38,7 @@ jQuery(document).ready(function () {
         e.preventDefault();
         jQuery("#center").load(jQuery(this).attr("href"));
     });
-    jQuery(document).on("click", "#top a", function (e) {
+    jQuery(document).on("click", "nav .dropdown a", function (e) {
         e.preventDefault();
         if(jQuery(this).attr("href") !== "#") {
             jQuery("#center").load(jQuery(this).attr("href"));
@@ -59,7 +59,7 @@ jQuery(document).ready(function () {
             // refresh("#Container");
         });
     });
-    jQuery(document).on("submit", "#Search form", function (e) {
+    jQuery(document).on("submit", "form", function (e) {
         var form = this;
         e.preventDefault();
         jQuery.ajax({
