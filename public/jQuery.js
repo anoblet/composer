@@ -56,7 +56,7 @@ jQuery(document).ready(function () {
             data: jQuery(this).serialize()
         }).done(function (response) {
             jQuery(form).replaceWith(response);
-            refresh("#Container");
+            // refresh("#Container");
         });
     });
     jQuery(document).on("submit", "#Search form", function (e) {

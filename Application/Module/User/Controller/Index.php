@@ -34,6 +34,7 @@ class Index extends \Application\Controller {
 
         if($Error) {
             $Message = $Error;
+            $View = User::getStaticView("Login.phtml", array("User" => $User, "Message" => $Message));
         }
 
         else {
@@ -51,12 +52,13 @@ class Index extends \Application\Controller {
             $Result = mysqli_fetch_array($Resource, MYSQLI_ASSOC);
             if ($Result) {
                 $_SESSION['User'] = true;
+                $View = User::getStaticView("MyAccount.phtml", array("User" => $User, "Message" => $Message));
+
             } else {
                 $Message = "Invalid username and/or password.";
+                $View = User::getStaticView("Login.phtml", array("User" => $User, "Message" => $Message));
             }
         }
-
-        $View = User::getStaticView("Login.phtml", array("User" => $User, "Message" => $Message));
 
         return $View;
     }
