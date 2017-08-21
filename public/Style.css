@@ -3,3 +3,11 @@
   #middle {
       height: 60%;
   }
+  nav {
+      background: #2196f3;
+  }
+  nva .dropwodn {
+      display: inline-block;
+      vertical-align: middle;
+      float: none;
+  }
