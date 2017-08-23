@@ -1,21 +1,17 @@
 <nav>
-<ul class="nav">
-    <li role="presentation" class="dropdown">
-        <a href="#" data-toggle="dropdown" role="button" aria-haspopup="true"
-           aria-expanded="false">
-            <button class="btn btn-default">
-                <span class="glyphicon glyphicon-menu-hamburger"></span>
-            </button>
-        </a>
-        <ul class="dropdown-menu">
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="true">
+            <span class="glyphicon glyphicon-menu-hamburger"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
             <?php if (!Application::getStaticModule("Session")->isUserLoggedIn()): ?>
-                <li><a href="User/Index/Login">Sign In / Register</a></li>
+                <li><a href="User/Index/Login">Login / Register</a></li>
             <?php else: ?>
                 <li><a href="Settings">Settings</a></li>
-                <li><a href="User/Index/Logout">Sign Out</a></li>
+                <li><a href="User/Index/Logout">Logout</a></li>
             <?php endif; ?>
         </ul>
-    </li>
-</ul>
+    </div>
+    <a href="<?=Application::getURL();?>">Brand</a>
 </nav>
-

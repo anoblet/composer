@@ -1,36 +1,30 @@
 <html>
 <head>
     <title><?= $Layout->getTitle(); ?></title>
-    <script src="https://use.fontawesome.com/49642d2436.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
-            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="bootstrap.min.css"/>
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-            crossorigin="anonymous"></script>
+    <!-- jQuery -->
+    <script src="library/jquery/dist/jquery.min.js"></script>
+    <script src="library/jquery-ui/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="library/jquery-ui/themes/smoothness/jquery-ui.css">
+    <!-- Bootstrap -->
+    <script src="library/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="library/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="library/bootstrap/dist/css/bootstrap-theme.min.css"/>
+    <!-- Custom -->
     <script src="<?= Application::getURL("jQuery.js"); ?>"></script>
     <link rel="stylesheet" href="<?= BASE ?>Style.css">
-    <script type="text/javascript"
-            src="http://localhost:8080/s/53a6b67871465ed7b4838db208cf960f-T/-6pq3en/74002/b6b48b2829824b869586ac216d119363/2.0.23/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?locale=en-US&collectorId=a76297e0"></script>
+    <!-- JIRA -->
+    <script type="text/javascript" src="http://localhost:8080/s/53a6b67871465ed7b4838db208cf960f-T/-6pq3en/74002/b6b48b2829824b869586ac216d119363/2.0.23/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?locale=en-US&collectorId=a76297e0"></script>
 </head>
 <body>
 <div id="Container" class="container-fluid">
     <div id="top" class="row" src="<?= Application::getURL("Layout/Index/Top"); ?>"></div>
-    <div id="left" class="column col-sm-2" src="<?= Application::getURL("Layout/Index/Left"); ?>">
+    <div class="row">
+        <div id="left" class="col-sm-2" src="<?= Application::getURL("Layout/Index/Left"); ?>">
+        </div>
+        <div id="center" class="col-sm-8" src="CMS/Index/Home">
+        </div>
+        <div id="right" class="col-sm-2" src="<?= Application::getURL("Layout/Index/Right"); ?>"></div>
     </div>
-    <div id="center" class="column col-sm-8" src="CMS/Index/Home">
-    </div>
-    <div id="right" class="column col-sm-2" src="<?= Application::getURL("Layout/Index/Right"); ?>"
-         class="column"></div>
     <div id="bottom" class="row" src="<?= Application::getURL("Layout/Index/Bottom"); ?>">
         <div id="copyright">&copy; Andy Noblet 2016</div>
     </div>

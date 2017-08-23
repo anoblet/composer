@@ -4,10 +4,13 @@ namespace Application\Module\User\Controller;
 
 use Application;
 use Application\Module\User;
-use \Application\Module\Database;
+use Application\Module\Database;
 
 class Index extends \Application\Controller {
     public function Index() {
+        if($this->getModule("User")->isLoggedIn()) {
+            $View = "MyAccount";
+        }
         return $this->Login();
     }
 

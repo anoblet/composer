@@ -6,8 +6,16 @@
   nav {
       background: #2196f3;
   }
-  nva .dropwodn {
+  nav .dropdown {
       display: inline-block;
       vertical-align: middle;
       float: none;
+  }
+
+  nav .btn-default {
+      margin: 15px;
+  }
+
+  #Copyright {
+      text-align: center;
   }
