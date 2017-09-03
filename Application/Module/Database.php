@@ -25,11 +25,11 @@ namespace Application\Module {
 
         public function Connect() {
             $Connection = $this->getModel("Connection");
-            $Connection->setUser("root");
-            $Connection->setPassword("123");
-            $Connection->setDatabase("application");
+            $Connection->setUser("user");
+            $Connection->setPassword("password");
+            $Connection->setDatabase("Application");
 
-            $Connection = mysqli_connect("localhost", $Connection->getUser(), $Connection->getPassword(), $Connection->getDatabase());
+            $Connection = mysqli_connect("mysql", $Connection->getUser(), $Connection->getPassword(), $Connection->getDatabase());
 
             return $Connection;
         }

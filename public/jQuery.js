@@ -1,3 +1,9 @@
+function load(element) {
+    jQuery(element).load(jQuery(element).attr("src"), function () {
+        refresh(this);
+        style(this);
+    });
+}
 function refresh(element) {
     var elements = jQuery(element).find("div[src]");
     elements.each(function () {
@@ -47,6 +53,7 @@ jQuery(document).ready(function () {
     jQuery("select").on("change,", function () {
         jQuery("#center").load(jQuery(this).attr("href"));
     });
+    /*
     jQuery(document).on("submit", "#center form", function (e) {
         var form = this;
         e.preventDefault();
@@ -58,7 +65,7 @@ jQuery(document).ready(function () {
             jQuery(form).replaceWith(response);
             // refresh("#Container");
         });
-    });
+    });*/
     jQuery(document).on("submit", "form", function (e) {
         var form = this;
         e.preventDefault();
@@ -72,3 +79,12 @@ jQuery(document).ready(function () {
     })
 })
 ;
+
+function redirect(url) {
+    jQuery.ajax({
+        url: url,
+        method: "GET",
+    }).done(function (response) {
+        jQuery("#center").html(response);
+    });
+}
