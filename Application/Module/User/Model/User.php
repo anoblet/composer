@@ -3,8 +3,8 @@ namespace Application\Module\User\Model;
 
 class User extends \Application\Model
 {
-    public $firstName = "Andy";
-    public $lastName = "Noblet";
+    protected $firstName = "Andy";
+    protected $lastName = "Noblet";
     protected $Email;
     protected $Password;
 
@@ -13,6 +13,7 @@ class User extends \Application\Model
      */
     public function setEmail($Email) {
         $this->Email = $Email;
+        return $this;
     }
 
     /**
@@ -20,6 +21,7 @@ class User extends \Application\Model
      */
     public function setPassword($Password) {
         $this->Password = $Password;
+        return $this;
     }
 
     /**

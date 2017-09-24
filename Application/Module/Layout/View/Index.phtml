@@ -1,0 +1,33 @@
+<html>
+<head>
+    <title><?= $Layout->getTitle(); ?></title>
+    <!-- jQuery -->
+    <script src="library/jquery/dist/jquery.min.js"></script>
+    <script src="library/jquery-ui/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="library/jquery-ui/themes/smoothness/jquery-ui.css">
+    <!-- Bootstrap -->
+    <script src="library/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="library/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="library/bootstrap/dist/css/bootstrap-theme.min.css"/>
+    <!-- Custom -->
+    <script src="<?= Application::getURL("jQuery.js"); ?>"></script>
+    <link rel="stylesheet" href="<?= BASE ?>Style.css">
+    <!-- JIRA -->
+    <script type="text/javascript" src="http://localhost:8080/s/53a6b67871465ed7b4838db208cf960f-T/-6pq3en/74002/b6b48b2829824b869586ac216d119363/2.0.23/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?locale=en-US&collectorId=a76297e0"></script>
+</head>
+<body>
+<div id="Container" class="container-fluid">
+    <div id="top" class="row" src="<?= Application::getURL("Layout/Index/Top"); ?>"></div>
+    <div id="middle" class="row">
+        <div id="left" class="col-sm-2" src="<?= Application::getURL("Layout/Index/Left"); ?>">
+        </div>
+        <div id="center" class="col-sm-8" src="CMS/Index/Home">
+        </div>
+        <div id="right" class="col-sm-2" src="<?= Application::getURL("Layout/Index/Right"); ?>"></div>
+    </div>
+    <div id="bottom" class="row" src="<?= Application::getURL("Layout/Index/Bottom"); ?>">
+        <div id="copyright">&copy; Andy Noblet 2016</div>
+    </div>
+</div>
+</body>
+</html>

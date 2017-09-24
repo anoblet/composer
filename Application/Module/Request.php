@@ -1,20 +1,11 @@
 <?php
-namespace Application\Modules;
+namespace Application\Module;
 
-class Request extends \Application\Modules\Module
+class Request extends \Application\Module
 {
-    protected $ajax;
+    public $Path;
 
-    public function __construct()
-    {
-        $this->_model = $this->getModel();
-        if (isset($_REQUEST['ajax'])) {
-            $this->_model->_ajax = true;
-        }
-    }
-
-    public function parse()
-    {
+    public function getModule() {
 
     }
 }
