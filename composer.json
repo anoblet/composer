@@ -1,0 +1,19 @@
+{
+    "name": "andy/application",
+    "authors": [
+        {
+            "name": "andrewbnoblet",
+            "email": "andrewbnoblet@gmail.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/anoblet/application"
+        }
+    ],
+    "require": {
+        "andy/application": "dev-development"
+    }
+}
+
