@@ -5,5 +5,8 @@
             "name": "andrewbnoblet",
             "email": "andrewbnoblet@gmail.com"
         }
-    ]
+    ],
+    "require": {
+        "components/jquery"
+    }
 }
