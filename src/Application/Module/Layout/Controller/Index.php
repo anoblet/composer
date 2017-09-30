@@ -4,9 +4,11 @@ namespace Application\Module\Layout\Controller;
 
 use Application\Module\Layout;
 
-class Index extends \Application\Controller {
+    use \Application\Controller;
+
+    class Index extends \Application\Controller {
     public function Index() {
-        return Layout::getStaticView("Index.phtml", array("Layout" => Layout::getStaticModel("Layout")));
+        return $this->View("Layout/Index.phtml");
     }
 
     public function Navigation() {
