@@ -12,10 +12,9 @@ $Base = $Base . "/";
 define("BASE", $Base);
 
 // Application Start
-$Application = Application::getSingleton();
-$Application->Start();
+// $Application = Application::getSingleton();
+// $Application->Start();
 ?>
-
 <?php
 
 class Application {
@@ -45,9 +44,10 @@ class Application {
         return $Model;
     }
 
-    public function Start() {
-        $this->getModule("Session")->createSession();
-        $Output = $this->getModule("Controller")->Execute();
+    public static function Start() {
+        $Application = new Application;
+        $Application->getModule("Session")->createSession();
+        $Output = $Application->getModule("Controller")->Execute();
 
         print $Output;
     }
