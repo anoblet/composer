@@ -52,8 +52,8 @@ class Application {
         }
     }
 
-    protected function getRequest() {
-        $Path = $this->getModule("Controller")->getPath();
+    public function getRequest() {
+        $Path = Application::getModule("Controller")->getPath();
         $Parts = explode("/", $Path);
 
         $Request['Arguments'] = $_REQUEST;
@@ -139,8 +139,8 @@ class Application {
     }
 
 
-    protected static function getURL($Path = null) {
-        $URL = BASE . $Path;
+    public static function getURL($Path = null) {
+        $URL = PATH . $Path;
 
         return $URL;
     }

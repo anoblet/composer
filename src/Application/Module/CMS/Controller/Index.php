@@ -3,8 +3,10 @@ namespace Application\Module\CMS\Controller {
 
     use \Application\Module\CMS;
 
-    class Index extends \Application\Controller
+    class Index
     {
+        use \Application\Controller;
+      
         public function Index() {
 
         }

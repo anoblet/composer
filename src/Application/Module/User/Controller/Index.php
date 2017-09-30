@@ -6,22 +6,25 @@ use Application;
 use Application\Module\User;
 use Application\Module\Database;
 
-class Index extends \Application\Controller {
+class Index {
+  
+    use \Application\Controller;
+  
     public function Index() {
-        if($this->getModule("User")->isLoggedIn()) {
+        if(Application::getStaticModule("User")->isLoggedIn()) {
             $View = "MyAccount";
         }
         return $this->Login();
     }
 
     public function Login() {
-        if ($this->getModule("Session")->isUserLoggedIn()) {
+        if (Application::getStaticModule("Session")->isUserLoggedIn()) {
             return $this->MyAccount();
         }
         $Message = null;
         $Error = null;
 
-        $Request = $this->getRequest();
+        $Request = Application::getRequest();
         $User = User::getStaticModel("User");
 
         if (empty($Request['Arguments']['Email'])) {
@@ -41,7 +44,7 @@ class Index extends \Application\Controller {
         }
 
         else {
-            $Database = $this->getModule("Database");
+            $Database = Application::getModule("Database");
             $Query = $Database->createQuery();
             $Query->setAction("Select");
             $Query->setFields("*");
