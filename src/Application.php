@@ -1,8 +1,4 @@
 <?php
-// Autoload
-require_once("Autoload.php");
-spl_autoload_register("Autoload");
-
 // Error reporting
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
