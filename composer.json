@@ -5,7 +5,12 @@
             "name": "andrewbnoblet",
             "email": "andrewbnoblet@gmail.com"
         }
-    ]
+    ],
+    "autoload": {
+        "classmap": ["src/"]
+    }
+
+
 
 
 
