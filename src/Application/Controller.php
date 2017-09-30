@@ -1,13 +1,10 @@
 <?php
 namespace Application;
 
-class Controller extends \Application
+trait Controller
 {
     public function View($View) {
-
-
         include(BASE . DIRECTORY_SEPARATOR . "View" . DIRECTORY_SEPARATOR . $View);
-
     }
 }
 

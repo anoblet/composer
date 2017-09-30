@@ -4,9 +4,11 @@ namespace Application\Module\Layout\Controller;
 
 use Application\Module\Layout;
 
-    use \Application\Controller;
 
-    class Index extends \Application\Controller {
+
+class Index {
+    use \Application\Controller;
+  
     public function Index() {
         return $this->View("Layout/Index.phtml");
     }
