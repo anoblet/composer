@@ -6,9 +6,11 @@ use Application;
 use Application\Module\User;
 use Application\Module\Database;
 
+
 class Index {
   
     use \Application\Controller;
+    use \Application\Base;
   
     public function Index() {
         if(Application::getStaticModule("User")->isLoggedIn()) {
@@ -18,7 +20,7 @@ class Index {
     }
 
     public function Login() {
-        if (Application::getStaticModule("Session")->isUserLoggedIn()) {
+        if ($this->Module("Session")->isUserLoggedIn()) {
             return $this->MyAccount();
         }
         $Message = null;
