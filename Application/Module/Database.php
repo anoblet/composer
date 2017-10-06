@@ -1,7 +1,9 @@
 <?php
 
 namespace Application\Module {
-    class Database extends \Application\Module {
+    class Database {
+        use \Application\Base;
+      
         public function Load($Table, $Data = null) {
             $Connection = $this->Connect();
             if (isset($Data)) {

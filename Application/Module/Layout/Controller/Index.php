@@ -14,7 +14,7 @@ class Index {
     }
 
     public function Navigation() {
-        return Layout::getStaticView("Navigation.phtml");
+        return $this->View("Layout/Navigation.phtml");
     }
 
     public function Top() {

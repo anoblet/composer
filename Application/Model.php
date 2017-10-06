@@ -3,6 +3,8 @@ namespace Application;
 
 class Model extends \Application
 {
+    use Persistent;
+  
     private $Element;
     private $Attributes = array();
     private $classes = array();
@@ -118,6 +120,10 @@ class Model extends \Application
 
         return $this;
     }
+  
+  public function getSchema() {
+      return $this->Schema;
+  }
 }
 
 ?>

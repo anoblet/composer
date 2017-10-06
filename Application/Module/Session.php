@@ -2,7 +2,7 @@
 
 namespace Application\Module {
 
-    class Session extends \Application\Module {
+    class Session {
         public function createSession() {
             session_start();
         }

@@ -1,7 +1,7 @@
 <form action="User/Index/Login">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xs-6">
+            <div class="col-xs-12 col-sm-6">
                 <div class="form-group col-xs-10">
                     <input type="email" class="form-control" name="Email" aria-describedby="emailHelp"
                            placeholder="Email">
@@ -19,7 +19,7 @@
                     <small><?=$Message;?></small>
                 </div>
             </div>
-            <div class="col-xs-6">Don't have an account? <a href="<?= Application::getURL("User/Index/Register"); ?>">Register</a>
+            <div class="col-xs-12 col-sm-6">Don't have an account? <a href="<?= Application::getURL("User/Index/Register"); ?>">Register</a>
             </div>
         </div>
     </div>

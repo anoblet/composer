@@ -11,7 +11,7 @@ namespace Application\Module\CMS\Controller {
 
         }
         public Function Home() {
-            return CMS::getStaticView("Home.phtml");
+            return $this->View("CMS/Home.phtml");
         }
     }
 }

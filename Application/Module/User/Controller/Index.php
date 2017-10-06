@@ -26,7 +26,7 @@ class Index {
         $Message = null;
         $Error = null;
 
-        $Request = Application::getRequest();
+        $Request = $this->Request();
         $User = User::getStaticModel("User");
 
         if (empty($Request['Arguments']['Email'])) {
@@ -46,7 +46,7 @@ class Index {
         }
 
         else {
-            $Database = Application::getModule("Database");
+            $Database = $this->Module("Database");
             $Query = $Database->createQuery();
             $Query->setAction("Select");
             $Query->setFields("*");
@@ -93,7 +93,7 @@ class Index {
 
     public function Register() {
         $User = User::getStaticModel("User");
-        $Request = $this->getRequest();
+        $Request = $this->Request();
 
         $Message = null;
 
