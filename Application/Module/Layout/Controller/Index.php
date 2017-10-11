@@ -2,9 +2,7 @@
 
 namespace Application\Module\Layout\Controller;
 
-use Application\Module\Layout;
-
-
+// use Application\Module\Layout;
 
 class Index {
     use \Application\Controller;
@@ -18,11 +16,11 @@ class Index {
     }
 
     public function Top() {
-        return Layout::getStaticView("Top.phtml");
+        return $this->View("Layout/Top.phtml");
     }
 
     public function Left() {
-        return Layout::getStaticView("Left.phtml");
+        return $this->View("Layout/Left.phtml");
     }
 
     public function Right() {
