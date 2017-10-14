@@ -2,8 +2,10 @@
 
 namespace Application\Module {
 
-    class Layout extends \Application\Module
+    class Layout
     {
+        use \Application\Base;
+
         public function Index() {
             return $this->getView("Index.phtml", array("Layout" => $this->getModel("Layout")));
         }

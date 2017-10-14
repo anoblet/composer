@@ -71,9 +71,9 @@ class Index {
         return $View;
     }
 
-    public function MyAccount() {
-        if (!$this->getModule("Session")->isUserLoggedIn()) {
-            $Controller = $this->getModule("Controller");
+    public function Account() {
+        if (!$this->Module("Session")->isUserLoggedIn()) {
+            $Controller = $this->Module("Controller");
             $Controller->setPath("/User/Index/Login");
             return $Controller->Execute();
         } else {
